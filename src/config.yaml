@@ -11,7 +11,7 @@ metadata:
   title:
     default: LightningX
     template: '%s — LightningX'
-  description: "Accelerate your time-to-market with cutting-edge design automation technology from LightningX."
+  description: 'Accelerate your time-to-market with cutting-edge design automation technology from LightningX.'
   robots:
     index: true
     follow: true
