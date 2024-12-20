@@ -19,10 +19,10 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
-
+<!-- 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
   <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': isReversed }, { 'md:flex-row': image }]}>
-    <div class:list={['md:py-4 md:self-center', { 'md:basis-1/2': image }, { 'w-full': !image }]}>
+    <div class:list={['md:py-4 md:self-center', { 'md:basis-3/4': image }, { 'w-full': !image }]}>
       <Headline
         title={title}
         subtitle={subtitle}
@@ -37,7 +37,7 @@ const {
     </div>
     {
       image && (
-        <div class="relative md:basis-1/2">
+        <div class="relative md:basis-1/4">
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
@@ -56,4 +56,40 @@ const {
       )
     }
   </div>
+</WidgetWrapper> -->
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+  <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': isReversed }, { 'md:flex-row': image }]}>
+    <div class:list={['md:py-4 md:self-center', { 'md:basis-3/4': image }, { 'w-full': !image }]}>
+      <Headline
+        title={title}
+        subtitle={subtitle}
+        tagline={tagline}
+        classes={{
+          container: 'text-left rtl:text-right',
+          title: 'text-3xl lg:text-4xl',
+          ...((classes?.headline as object) ?? {}),
+        }}
+      />
+      <Timeline items={items} classes={classes?.items as Record<string, never>} />
+    </div>
+    {
+      image && (
+        <div class="relative md:basis-1/4 flex items-center justify-center">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="w-full h-auto rounded-md shadow-lg bg-gray-400 dark:bg-slate-700"
+              widths={[400, 768]}
+              sizes="(max-width: 768px) 100vw, 432px"
+              layout="responsive"
+              src={image?.src}
+              alt={image?.alt || ''}
+            />
+          )}
+        </div>
+      )
+    }
+  </div>
 </WidgetWrapper>
+
