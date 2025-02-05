@@ -1,15 +1,7 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
-  links: [
-    {
-      text: 'Home',
-      href: getPermalink('.'),
-    },
-    {
-      text: 'About us',
-    },
-  ],
+  links: [],
   actions: [{ text: 'Contact', href: 'mailto:hi@lightningx-da.com', target: '_blank' }],
 };
 

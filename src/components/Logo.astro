@@ -1,16 +1,11 @@
 ---
 import Image from '~/components/common/Image.astro';
-import logoImg from '~/assets/images/lightningx.png';
+import logoImg from '~/assets/images/logo.svg';
 ---
 
-<div class="container mx-auto px-4 py-4 flex justify-between items-center">
-  <a href="/" class="flex font-serif font-bold items-center">
-    <Image 
-      src={logoImg} 
-      alt="Company Logo Image" 
-      class="rounded-lg"
-      width={160}
-      height={48}
-    />
-  </a>
-</div>
+<Image 
+  src={logoImg} 
+  alt="LightningX logo" 
+  width={164}
+  height={34}
+/>
