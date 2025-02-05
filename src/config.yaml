@@ -11,7 +11,7 @@ metadata:
   title:
     default: LightningX
     template: '%s — LightningX'
-  description: 'Accelerate your time-to-market with cutting-edge design automation technology from LightningX.'
+  description: 'LightningX technology accelerates design time for exascale chip and FPGA designs.'
   robots:
     index: true
     follow: true
