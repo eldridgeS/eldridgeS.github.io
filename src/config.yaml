@@ -17,10 +17,6 @@ metadata:
     follow: true
   openGraph:
     site_name: LightningX
-    images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
     type: website
 
 i18n:
