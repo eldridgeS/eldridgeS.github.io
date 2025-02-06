@@ -6,6 +6,8 @@ import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Image from '~/components/common/Image.astro';
+import SmallLogo from '~/assets/images/logo-small.svg';
 
 const metadata = {
   title: 'LightningX — Accelerate Time-to-Market',
@@ -20,7 +22,7 @@ const metadata = {
 image={{ src: '~/assets/images/featured.PNG', alt: 'Wide Front Page Image' }}
 >
 <Fragment slot="title">
-  X is for <span class="text-accent dark:text-white highlight">exascale.</span>
+    <Image src={SmallLogo} class="inline-block align-baseline" width={39.6} height={44} alt="X" /> is for <span class="text-accent dark:text-white highlight">exascale.</span>
 </Fragment>
 <Fragment slot="subtitle">
   LightningX technology accelerates design time for <span class="font-semibold">exascale chip and FPGA designs.</span>
