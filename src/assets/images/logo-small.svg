@@ -1,53 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   width="90"
-   height="100"
-   viewBox="0 0 90 100"
-   fill="none"
-   version="1.1"
-   id="svg3"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <title
-     id="title3">X</title>
-  <path
-     d="M 0,0 H 25 L 90,100 H 65 Z"
-     fill="#000000"
-     id="path1" />
-  <path
-     d="M 90,0 54.9,46 60.1,54 5,100 H 0 L 35.1,54 29.9,46 65,0 Z"
-     fill="url(#paint0_linear_4_9)"
-     id="path2"
-     style="fill:url(#paint0_linear_4_9)" />
-  <defs
-     id="defs3">
-    <linearGradient
-       id="paint0_linear_4_9"
-       x1="60"
-       y1="10"
-       x2="60"
-       y2="110"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-15,-10)">
-      <stop
-         stop-color="#EAAA00"
-         id="stop2" />
-      <stop
-         offset="1"
-         stop-color="#BB8800"
-         id="stop3" />
-    </linearGradient>
-  </defs>
-  <metadata
-     id="metadata3">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:title>X</dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+<svg width="90" height="100" viewBox="0 0 90 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_25_29)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25 0H0L26 40L41 24.6154L25 0ZM64 60L46.6471 71.7647L65 100H90L64 60Z" fill="black"/>
+<path d="M90 0L51 40L64 60L5 100H0L39 60L26 40L65 0H90Z" fill="#EAAA00"/>
+</g>
+<defs>
+<clipPath id="clip0_25_29">
+<rect width="90" height="100" fill="white"/>
+</clipPath>
+</defs>
 </svg>
