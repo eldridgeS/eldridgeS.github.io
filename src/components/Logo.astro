@@ -1,10 +1,18 @@
 ---
 import Image from '~/components/common/Image.astro';
 import logoImg from '~/assets/images/logo.svg';
+import logoImgDark from '~/assets/images/logo-dark.svg';
 ---
 
 <Image 
-  src={logoImg} 
-  alt="LightningX logo" 
+  src={logoImg}
+  alt="LightningX logo"
+  class="dark:hidden"
+  width={200}
+/>
+<Image 
+  src={logoImgDark}
+  alt="LightningX logo"
+  class="hidden dark:block"
   width={200}
 />

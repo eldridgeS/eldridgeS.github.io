@@ -8,6 +8,7 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Image from '~/components/common/Image.astro';
 import SmallLogo from '~/assets/images/logo-small.svg';
+import SmallLogoDark from '~/assets/images/logo-small-dark.svg';
 
 const metadata = {
   title: 'LightningX — Accelerate Time-to-Market',
@@ -22,7 +23,9 @@ const metadata = {
 image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development board with LightningSim UI fading in on the right' }}
 >
 <Fragment slot="title">
-    <Image src={SmallLogo} class="inline-block align-baseline" style="height: 0.7333em; width: auto;" alt="X" /> is for <span class="text-accent dark:text-white highlight">exascale.</span>
+  <Image src={SmallLogo} class="align-baseline inline-block dark:hidden" style="height: 0.7333em; width: auto;" alt="X" />
+  <Image src={SmallLogoDark} class="align-baseline hidden dark:inline-block" style="height: 0.7333em; width: auto;" alt="X" />
+  is for <span class="text-accent dark:text-white highlight">exascale.</span>
 </Fragment>
 <Fragment slot="subtitle">
   LightningX technology accelerates design time for <span class="font-semibold">exascale chip and FPGA designs.</span>
