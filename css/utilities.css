@@ -104,3 +104,54 @@ a.no-underline:hover {
     padding: 20px 20px;
   }
 }
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode .navbar,
+.dark-mode #footer {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .button {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+.dark-mode .project-card {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+}
+
+#dark-mode-toggle {
+  background-color: transparent;
+  border: 1px solid var(--button-border, #ccc);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.05);
+}
+
+body.dark-mode #dark-mode-toggle {
+  border-color: #888;
+  color: #f0f0f0;
+  background-color: #222;
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+  background-color: #333;
+}
+
+
+/* Add more overrides as needed for links, text, buttons */
