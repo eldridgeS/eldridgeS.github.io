@@ -34,37 +34,36 @@ const {
     >
       {items.map(({ title, description, icon, image, callToAction, classes: itemClasses = {} }) => (
         <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-          <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
-            <div class="flex justify-center items-start mr-4 rtl:ml-4 rtl:mr-0">
-              {image ? (
-                <img
-                  src={image}
-                  alt={title}
-                  class="w-12 h-12 rounded-full object-cover"
+          <div class={twMerge('flex flex-col items-center text-center max-w-md', panelClass, itemClasses?.panel)}>
+            {image ? (
+              <img
+                src={image}
+                alt={title}
+                class="w-24 h-24 rounded-full object-cover mb-4"
+              />
+            ) : (
+              (icon || defaultIcon) && (
+                <Icon
+                  name={icon || defaultIcon}
+                  class={twMerge('w-12 h-12 mb-4 text-primary', defaultIconClass, itemClasses?.icon)}
                 />
-              ) : (
-                (icon || defaultIcon) && (
-                  <Icon
-                    name={icon || defaultIcon}
-                    class={twMerge('w-7 h-7', defaultIconClass, itemClasses?.icon)}
-                  />
-                )
-              )}
-            </div>
-            <div class="mt-0.5">
-              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
-              {description && (
-                <p
-                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
-                  set:html={description}
-                />
-              )}
-              {callToAction && (
-                <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
-                  <Button variant="link" {...callToAction} />
-                </div>
-              )}
-            </div>
+              )
+            )}
+
+            {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
+
+            {description && (
+              <p
+                class={twMerge(`${title ? 'mt-2' : ''} text-muted`, descriptionClass, itemClasses?.description)}
+                set:html={description}
+              />
+            )}
+
+            {callToAction && (
+              <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
+                <Button variant="link" {...callToAction} />
+              </div>
+            )}
           </div>
         </div>
       ))}
