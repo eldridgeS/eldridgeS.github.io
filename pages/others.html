@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Timeline Projects | Eldridge Surianto</title>
+  <meta name="description" content="Timeline Portfolio Projects of Eldridge Surianto">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/timeline.css"> <!-- Add this -->
+  <script defer src="../js/script.js"></script>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../index.html">
+      <span class="nav-title">My Projects</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button">
+        <span class="button-text">🌙 / ☀️</span>
+      </button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com">
+        <span class="button-text">Contact Me</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="body-text" style="max-width: 700px; margin: 40px auto 0;">
+    Beyond my technical projects, this section explores other important dimensions of my life—including my involvement in research, leadership in extracurricular organizations, and experiences that have shaped me outside the classroom. Whether it’s presenting findings at symposia, organizing community initiatives, or pursuing personal interests that inspire me, these moments reflect the values and passions that drive my growth as both an engineer and an individual.
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline">
+
+    <div class="timeline-entry timeline-entry-left">
+      <div class="timeline-content">
+        <img src="../assets/images/metronome_demo.png" alt="LED FPGA Metronome Demo" class="timeline-image">
+        <div class="course-title">VHDL FPGA LED Metronome on DE10-Standard</div>
+        <div class="course-description">
+          Built a modular LED metronome peripheral using VHDL and Quartus Prime with PWM and adjustable BPM via SCOMP memory-mapped IO. Validated with ModelSim and waveform timing.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-entry timeline-entry-right">
+      <div class="timeline-content">
+        <img src="https://img.youtube.com/vi/CaAML8HMEoQ/0.jpg" alt="Wordle Game Demo" class="timeline-image">
+        <div class="course-title">Wordle Game on Mbed uLCD</div>
+        <div class="course-description">
+          Implemented Wordle in C++ on a Cortex-M microcontroller with real-time GPIO input, display rendering, and PWM sound. Strengthened skills in timing and memory constraints.
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more timeline-entry blocks here -->
+
+  </div>
+
+  <!-- FOOTER -->
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/">
+      <img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/">
+      <img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS">
+      <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/>
+    </a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com">
+      <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/>
+    </a>
+  </div>
+</body>
+</html>
