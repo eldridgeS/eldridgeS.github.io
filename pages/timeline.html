@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/typography.css">
   <link rel="stylesheet" href="../css/utilities.css">
-  <link rel="stylesheet" href="../css/timeline.css"> <!-- Add this -->
   <script defer src="../js/script.js"></script>
 </head>
 
@@ -30,51 +29,66 @@
     </div>
   </div>
 
-  <!-- INTRO -->
-<div id="main-content">
-  <div class="body-text" style="max-width: 700px; margin: auto;">
-    Beyond my technical projects, this section explores other important dimensions of my life—including my involvement in research, leadership in extracurricular organizations, and experiences that have shaped me outside the classroom. Whether it’s presenting findings at symposia, organizing community initiatives, or pursuing personal interests that inspire me, these moments reflect the values and passions that drive my growth as both an engineer and an individual.
-  </div>
+  <!-- MAIN CONTENT -->
+  <div id="main-content">
+    <div class="body-text" style="max-width: 700px; margin: auto;">
+      Beyond my technical projects, this section explores other important dimensions of my life—including my involvement in research, leadership in extracurricular organizations, and experiences that have shaped me outside the classroom. Whether it’s presenting findings at symposia, organizing community initiatives, or pursuing personal interests that inspire me, these moments reflect the values and passions that drive my growth as both an engineer and an individual.
+    </div>
 
-  <!-- TIMELINE -->
-  <div class="timeline">
+    <div class="project-details-content">
 
-    <div class="timeline-entry timeline-entry-left">
-      <div class="timeline-content">
-        <img src="path/to/your/image.png" alt="Research Assistant Image" class="timeline-image">
-        <div class="course-title">Undergraduate Research Assistant | Plasma & Dielectrics Lab | Georgia Tech</div>
-        <div class="course-description">
-          <p><strong>August 2024 - Present</strong></p>
-          <ul>
-            <li>Developed MATLAB scripting pipelines for modeling zinc oxide voltage-dependent resistor (MOVs) microstructures in COMSOL Multiphysics and assigning semiconductor granular properties, reducing Finite Element Analysis (FEA) setup time by 95%.</li>
-            <li>Executed thousands of FEA simulations using the Monte Carlo method to analyze the impact of material inhomogeneity on current distribution, generating statistical insights to optimize MOV design for high-energy handling power electronics.</li>
-          </ul>
+      <!-- TIMELINE CARD 1 -->
+      <div class="course-card">
+        <div class="course-card-left">
+          <img src="path/to/your/image.png" alt="Research Assistant Image" class="course-image">
+        </div>
+        <div class="course-card-right">
+          <div class="course-title">
+            Undergraduate Research Assistant | Plasma & Dielectrics Lab | Georgia Tech
+          </div>
+          <div class="course-description">
+            <p><strong>August 2024 - Present</strong></p>
+            <ul>
+              <li>Developed MATLAB scripting pipelines for modeling zinc oxide voltage-dependent resistor (MOVs) microstructures in COMSOL Multiphysics and assigning semiconductor granular properties, reducing Finite Element Analysis (FEA) setup time by 95%.</li>
+              <li>Executed thousands of FEA simulations using the Monte Carlo method to analyze the impact of material inhomogeneity on current distribution, generating statistical insights to optimize MOV design for high-energy handling power electronics.</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="timeline-entry timeline-entry-left">
-      <div class="timeline-content">
-        <img src="../assets/images/metronome_demo.png" alt="LED FPGA Metronome Demo" class="timeline-image">
-        <div class="course-title">VHDL FPGA LED Metronome on DE10-Standard</div>
-        <div class="course-description">
-          Built a modular LED metronome peripheral using VHDL and Quartus Prime with PWM and adjustable BPM via SCOMP memory-mapped IO. Validated with ModelSim and waveform timing.
+      <!-- TIMELINE CARD 2 -->
+      <div class="course-card">
+        <div class="course-card-left">
+          <img src="../assets/images/metronome_demo.png" alt="LED FPGA Metronome Demo" class="course-image">
+        </div>
+        <div class="course-card-right">
+          <div class="course-title">
+            VHDL FPGA LED Metronome on DE10-Standard
+          </div>
+          <div class="course-description">
+            Built a modular LED metronome peripheral using VHDL and Quartus Prime with PWM and adjustable BPM via SCOMP memory-mapped IO. Validated with ModelSim and waveform timing.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="timeline-entry timeline-entry-right">
-      <div class="timeline-content">
-        <img src="../assets/images/ns.jpeg" alt="National Service" class="timeline-image">
-        <div class="course-title">Singapore National Service</div>
-        <div class="course-description">
-As an Armament Technician with the Singapore Armed Forces, I performed daily maintenance and repair on various heavy artillery and firearms, including the Singapore Lightweight Howitzer, and supported artillery combat exercises. Concurrently, I served as Chairman of the NSF Council for the 6th Army Maintenance Base, where I managed the council acting as an intermediary between regular servicemen and over 150 Full-time Servicemen (NSFs). In this role, I addressed requests and feedback to superiors, maintained high cohesion and cordiality among technicians, and organized unit anniversary and cultural events for over 200 attendees, demonstrating strong event-planning and coordination skills.  My outstanding conduct earned me a personal testimonial from my Commanding Officer.         </div>
+      <!-- TIMELINE CARD 3 -->
+      <div class="course-card">
+        <div class="course-card-left">
+          <img src="../assets/images/ns.jpeg" alt="National Service" class="course-image">
+        </div>
+        <div class="course-card-right">
+          <div class="course-title">
+            Singapore National Service
+          </div>
+          <div class="course-description">
+            As an Armament Technician with the Singapore Armed Forces, I performed daily maintenance and repair on various heavy artillery and firearms, including the Singapore Lightweight Howitzer, and supported artillery combat exercises. Concurrently, I served as Chairman of the NSF Council for the 6th Army Maintenance Base, where I managed the council acting as an intermediary between regular servicemen and over 150 Full-time Servicemen (NSFs). In this role, I addressed requests and feedback to superiors, maintained high cohesion and cordiality among technicians, and organized unit anniversary and cultural events for over 200 attendees, demonstrating strong event-planning and coordination skills. My outstanding conduct earned me a personal testimonial from my Commanding Officer.
+          </div>
+        </div>
       </div>
+
+      <!-- Add more timeline "course-card" blocks here as needed -->
+
     </div>
-
-    <!-- Add more timeline-entry blocks here -->
-
   </div>
 
   <!-- FOOTER -->
