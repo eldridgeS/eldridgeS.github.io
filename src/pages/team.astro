@@ -1,0 +1,36 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Image from '~/components/common/Image.astro';
+
+  <Features
+    id="team_members"
+    title="Meet our Team Members!"
+    items={[
+      {
+        title: 'Dr. Callie Hao',
+        description: 'Project Lead',
+        image: '/images/Callie.png',
+      },
+      {
+        title: 'Rishov Sarkar',
+        description: 'Technical Lead',
+        image: '/images/Rishov.png',
+      },
+      {
+        title: 'Pramath Balisavira Guruprasanna',
+        description: 'Engineering Lead',
+        image: '/images/Pramath.png',
+      },
+      {
+        title: 'Sudiksha Das',
+        description: 'Management Lead',
+        image: '/images/Sudiksha.png',
+      }
+    ]}
+  />
