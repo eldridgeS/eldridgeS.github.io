@@ -9,8 +9,11 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Image from '~/components/common/Image.astro';
 ---
 
-<Layout metadata={metadata}>
-<!-- Features Section -->
+<Layout>
+  <Fragment slot="title">
+  Meet Our Team!<span class="text-accent dark:text-white highlight">exascale.</span>
+  </Fragment>
+  <!-- Features Section -->
   <Features
     id="team_members"
     title="Meet our Team Members!"
