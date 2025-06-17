@@ -10,37 +10,26 @@ import Image from '~/components/common/Image.astro';
 ---
 
 <Layout>
-    <table class="table-auto w-full border border-gray-300">
-  <thead>
-    <tr class="bg-gray-100">
-      <th class="border px-4 py-2">Benchmark</th>
-      <th class="border px-4 py-2">Cosimulation Cycles</th>
-      <th class="border px-4 py-2">LightningSim Cycles</th>
-      <th class="border px-4 py-2">OmniSim Cycles</th>
-      <th class="border px-4 py-2">Cosimulation Runtime (in s)</th>
-      <th class="border px-4 py-2">LightningSim Runtime (in s)</th>
-      <th class="border px-4 py-2">OmniSim Runtime (in s)</th>
-      <th class="border px-4 py-2">LightningSim Speedup (vs. Cosim)</th>
-      <th class="border px-4 py-2">OmniSim Speedup (vs. Cosim)</th>
-    </tr>
-  </thead>
-  <tbody>
+    <table class="min-w-full table-auto border-collapse rounded-lg overflow-hidden shadow-md">
+    <thead class="bg-blue-600 text-white">
     <tr>
-      <td class="border px-4 py-2">Fixed-point square root</td>
-      <td class="border px-4 py-2">30</td>
-      <td class="border px-4 py-2">30</td>
-      <td class="border px-4 py-2">30</td>
-      <td class="border px-4 py-2">58</td>
-      <td class="border px-4 py-2">6.18</td>
-      <td class="border px-4 py-2">3.20</td>
-      <td class="border px-4 py-2">-</td>
-      <td class="border px-4 py-2">-</td>
+      <th class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">Name</th>
+      <th class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">Age</th>
+      <th class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">Role</th>
     </tr>
-    <tr>
-      <td class="border px-4 py-2">Bob</td>
-      <td class="border px-4 py-2">34</td>
-      <td class="border px-4 py-2">Designer</td>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+    <tr class="hover:bg-gray-50">
+      <td class="px-6 py-4 text-sm text-gray-900">Alice</td>
+      <td class="px-6 py-4 text-sm text-gray-900">28</td>
+      <td class="px-6 py-4 text-sm text-gray-900">Engineer</td>
     </tr>
-  </tbody>
-</table>
+    <tr class="hover:bg-gray-50">
+      <td class="px-6 py-4 text-sm text-gray-900">Bob</td>
+      <td class="px-6 py-4 text-sm text-gray-900">34</td>
+      <td class="px-6 py-4 text-sm text-gray-900">Designer</td>
+    </tr>
+    </tbody>
+    </table>
+
 </Layout>
