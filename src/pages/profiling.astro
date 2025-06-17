@@ -20,9 +20,9 @@ import Image from '~/components/common/Image.astro';
         <th class="px-6 py-4 text-left">Cosimulation Cycles</th>
         <th class="px-6 py-4 text-left">LightningSim Cycles</th>
         <th class="px-6 py-4 text-left">OmniSim Cycles</th>
-        <th class="px-6 py-4 text-left">Cosimulation Runtime</th>
-        <th class="px-6 py-4 text-left">LightningSim Runtime</th>
-        <th class="px-6 py-4 text-left">OmniSim Runtime</th>
+        <th class="px-6 py-4 text-left">Cosimulation Runtime (in s)</th>
+        <th class="px-6 py-4 text-left">LightningSim Runtime (in s)</th>
+        <th class="px-6 py-4 text-left">OmniSim Runtime (in s)</th>
         <th class="px-6 py-4 text-left">LightningSim Speedup (vs. Cosim)</th>
         <th class="px-6 py-4 text-left">OmniSim Speedup (vs. Cosim)</th>
         <th class="px-6 py-4 text-left">OmniSim Speedup (vs. LightningSim)</th>
@@ -30,7 +30,7 @@ import Image from '~/components/common/Image.astro';
     </thead>
     <tbody class="text-slate-800 divide-y divide-indigo-100 text-sm">
       <tr class="bg-slate-50 hover:bg-indigo-100 transition">
-        <td class="px-4 py-2 font-medium">Fixed-Point Square Root</td>
+        <td class="px-4 py-2 font-medium">Fixed-point square root</td>
         <td class="px-4 py-2">30</td>
         <td class="px-4 py-2">30</td>
         <td class="px-4 py-2">30</td>
@@ -42,7 +42,7 @@ import Image from '~/components/common/Image.astro';
         <td class="px-4 py-2 font-bold text-indigo-700">1.92&times;</td>
       </tr>
       <tr class="bg-slate-50 hover:bg-indigo-100 transition">
-        <td class="px-4 py-2 font-medium">FIR Filter</td>
+        <td class="px-4 py-2 font-medium">FIR filter</td>
         <td class="px-4 py-2">172</td>
         <td class="px-4 py-2">172</td>
         <td class="px-4 py-2">172</td>
@@ -52,6 +52,42 @@ import Image from '~/components/common/Image.astro';
         <td class="px-4 py-2 font-bold text-indigo-700">19.72&times;</td>
         <td class="px-4 py-2 font-bold text-indigo-700">24.82&times;</td>
         <td class="px-4 py-2 font-bold text-indigo-700">1.26&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-100 transition">
+        <td class="px-4 py-2 font-medium">Fixed-point window conv</td>
+        <td class="px-4 py-2">35</td>
+        <td class="px-4 py-2">35</td>
+        <td class="px-4 py-2">35</td>
+        <td class="px-4 py-2">61.00</td>
+        <td class="px-4 py-2">4.54</td>
+        <td class="px-4 py-2">2.70</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">13.41&times;</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">22.60&times;</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">1.68&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-100 transition">
+        <td class="px-4 py-2 font-medium">Floating-point conv</td>
+        <td class="px-4 py-2">35</td>
+        <td class="px-4 py-2">35</td>
+        <td class="px-4 py-2">35</td>
+        <td class="px-4 py-2">112.00</td>
+        <td class="px-4 py-2">2.81</td>
+        <td class="px-4 py-2">2.41</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">39.86&times;</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">46.50&times;</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">1.17&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-100 transition">
+        <td class="px-4 py-2 font-medium">Arbitrary Precision ALU</td>
+        <td class="px-4 py-2">36</td>
+        <td class="px-4 py-2">36</td>
+        <td class="px-4 py-2">36</td>
+        <td class="px-4 py-2">68.00</td>
+        <td class="px-4 py-2">2.50</td>
+        <td class="px-4 py-2">1.93</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">27.20&times;</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">35.16&times;</td>
+        <td class="px-4 py-2 font-bold text-indigo-700">1.30&times;</td>
       </tr>
     </tbody>
   </table>
