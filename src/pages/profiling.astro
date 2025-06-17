@@ -11,26 +11,38 @@ import Image from '~/components/common/Image.astro';
 
 <Layout>
   <section class="my-8 px-4">
-  <h2 class="text-3xl font-extrabold text-indigo-800 mb-6 tracking-tight">Team Members</h2>
+  <h2 class="text-3xl font-extrabold text-indigo-200 mb-6 tracking-tight">Profiling Results</h2>
 
   <table class="min-w-full table-auto border-collapse rounded-xl overflow-hidden shadow-md bg-white font-sans">
     <thead class="bg-indigo-200 text-indigo-900 uppercase text-sm tracking-wider font-bold">
       <tr>
-        <th class="px-6 py-4 text-left">Name</th>
-        <th class="px-6 py-4 text-left">Age</th>
-        <th class="px-6 py-4 text-left">Role</th>
+        <th class="px-6 py-4 text-left">Benchmark</th>
+        <th class="px-6 py-4 text-left">Cosimulation Cycles</th>
+        <th class="px-6 py-4 text-left">LightningSim Cycles</th>
+        <th class="px-6 py-4 text-left">OmniSim Cycles</th>
+        <th class="px-6 py-4 text-left">Cosimulation Runtime</th>
+        <th class="px-6 py-4 text-left">LightningSim Runtime</th>
+        <th class="px-6 py-4 text-left">OmniSim Runtime</th>
+        <th class="px-6 py-4 text-left">LightningSim Speedup (vs. Cosim)</th>
+        <th class="px-6 py-4 text-left">OmniSim Speedup (vs. Cosim)</th>
       </tr>
     </thead>
     <tbody class="text-slate-800 divide-y divide-indigo-100 text-base">
       <tr class="bg-slate-50 hover:bg-indigo-50 transition">
-        <td class="px-6 py-4 font-medium">Alice</td>
-        <td class="px-6 py-4">28</td>
-        <td class="px-6 py-4 italic text-indigo-700">Engineer</td>
+        <td class="px-6 py-4 font-medium">Fixed-Point Square Root</td>
+        <td class="px-6 py-4">30</td>
+        <td class="px-6 py-4">30</td>
+        <td class="px-6 py-4">30</td>
+        <td class="px-6 py-4">58.00</td>
+        <td class="px-6 py-4">6.14</td>
+        <td class="px-6 py-4">3.20</td>
+        <td class="px-6 py-4">-</td>
+        <td class="px-6 py-4">-</td>
       </tr>
       <tr class="bg-slate-50 hover:bg-indigo-50 transition">
         <td class="px-6 py-4 font-medium">Bob</td>
         <td class="px-6 py-4">34</td>
-        <td class="px-6 py-4 italic text-indigo-700">Designer</td>
+        <td class="px-6 py-4 text-indigo-700">Designer</td>
       </tr>
     </tbody>
   </table>
