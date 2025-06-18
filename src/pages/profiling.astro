@@ -11,7 +11,7 @@ import Image from '~/components/common/Image.astro';
 
 <Layout>
   <section class="my-8 px-4">
-  <center><h2 class="text-3xl font-extrabold text-indigo-200 mb-6 tracking-tight">Profiling Results</h2></center>
+  <center><h2 class="text-2xl font-extrabold text-indigo-200 mb-6 tracking-tight">Profiling Results</h2></center>
 
   <table class="w-full max-w-sm mx-auto table-auto border-collapse rounded-xl overflow-hidden shadow-md bg-white font-sans">
     <thead class="bg-indigo-200 text-indigo-900 uppercase text-xs tracking-wide font-bold">
@@ -112,6 +112,126 @@ import Image from '~/components/common/Image.astro';
         <td class="px-2 py-1 font-bold text-indigo-700">11.52&times;</td>
         <td class="px-2 py-1 font-bold text-indigo-700">12.11&times;</td>
         <td class="px-2 py-1 font-bold text-indigo-700">1.05&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Loop with max bound</td>
+        <td class="px-2 py-1">31</td>
+        <td class="px-2 py-1">31</td>
+        <td class="px-2 py-1">31</td>
+        <td class="px-2 py-1">24.76</td>
+        <td class="px-2 py-1">2.25</td>
+        <td class="px-2 py-1">2.14</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.01&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.57&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.05&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Perfect nested loops</td>
+        <td class="px-2 py-1">406</td>
+        <td class="px-2 py-1">406</td>
+        <td class="px-2 py-1">406</td>
+        <td class="px-2 py-1">24.76</td>
+        <td class="px-2 py-1">2.27</td>
+        <td class="px-2 py-1">2.12</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">10.91&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.68&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.07&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Pipelined nested loops</td>
+        <td class="px-2 py-1">405</td>
+        <td class="px-2 py-1">405</td>
+        <td class="px-2 py-1">405</td>
+        <td class="px-2 py-1">24.92</td>
+        <td class="px-2 py-1">2.23</td>
+        <td class="px-2 py-1">2.19</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.18&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.38&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.02&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Sequential accumulators</td>
+        <td class="px-2 py-1">32</td>
+        <td class="px-2 py-1">32</td>
+        <td class="px-2 py-1">32</td>
+        <td class="px-2 py-1">26.59</td>
+        <td class="px-2 py-1">2.29</td>
+        <td class="px-2 py-1">2.20</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.61&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">12.09&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.04&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Accumulators + asserts</td>
+        <td class="px-2 py-1">33</td>
+        <td class="px-2 py-1">33</td>
+        <td class="px-2 py-1">33</td>
+        <td class="px-2 py-1">27.13</td>
+        <td class="px-2 py-1">2.30</td>
+        <td class="px-2 py-1">2.30</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.80&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.80&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.00&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Accumulators + dataflow</td>
+        <td class="px-2 py-1">31</td>
+        <td class="px-2 py-1">31</td>
+        <td class="px-2 py-1">32</td>
+        <td class="px-2 py-1">27.26</td>
+        <td class="px-2 py-1">2.29</td>
+        <td class="px-2 py-1">2.19</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">11.90&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">12.45&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.05&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Static memory example</td>
+        <td class="px-2 py-1">66</td>
+        <td class="px-2 py-1">66</td>
+        <td class="px-2 py-1">66</td>
+        <td class="px-2 py-1">33.23</td>
+        <td class="px-2 py-1">2.18</td>
+        <td class="px-2 py-1">2.12</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">15.24&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">15.67&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.03&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Pointer casting example</td>
+        <td class="px-2 py-1">408</td>
+        <td class="px-2 py-1">408</td>
+        <td class="px-2 py-1">408</td>
+        <td class="px-2 py-1">32.55</td>
+        <td class="px-2 py-1">2.15</td>
+        <td class="px-2 py-1">2.13</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">15.14&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">15.28&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.01&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">Double pointer example</td>
+        <td class="px-2 py-1">25</td>
+        <td class="px-2 py-1">25</td>
+        <td class="px-2 py-1">25</td>
+        <td class="px-2 py-1">31.70</td>
+        <td class="px-2 py-1">2.14</td>
+        <td class="px-2 py-1">1.91</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">14.81&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">16.60&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">1.12&times;</td>
+      </tr>
+      <tr class="bg-slate-50 hover:bg-indigo-300 transition">
+        <td class="px-2 py-1 font-medium">AXI-4 master</td>
+        <td class="px-2 py-1">178</td>
+        <td class="px-2 py-1">177</td>
+        <td class="px-2 py-1">177</td>
+        <td class="px-2 py-1">21.06</td>
+        <td class="px-2 py-1">2.19</td>
+        <td class="px-2 py-1">2.07</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">9.62&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">16.60&times;</td>
+        <td class="px-2 py-1 font-bold text-indigo-700">10.17&times;</td>
       </tr>
     </tbody>
   </table>
