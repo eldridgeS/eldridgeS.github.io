@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Projects | Eldridge Surianto</title>
+  <meta name="description" content="Portfolio Projects of Eldridge Surianto">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    /* Add this style block or merge with your existing layout.css/utilities.css */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex; /* Make body a flex container */
+      flex-direction: column; /* Stack children vertically */
+    }
+
+    #main-content {
+      flex: 1; /* Allows main content to grow and push footer down */
+      padding: 20px; /* Add some padding around the main content */
+    }
+
+    .projects-section-wrapper {
+      display: flex;
+      max-width: 1000px; /* Adjust as needed */
+      margin: 40px auto 20px auto; /* Center and add top/bottom margin */
+      position: relative; /* For the absolute positioning of the timeline line */
+      box-sizing: border-box; /* Include padding/border in element's total width and height */
+    }
+
+    .timeline-bar {
+      width: 4px;
+      background-color: #ccc; /* Light grey line */
+      position: absolute;
+      left: 15px; /* Position of the line - aligns with the desired dot center */
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+      transform: translateX(-50%); /* Center the 4px line on its left: 15px point */
+    }
+
+    .project-timeline-container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1; /* Allow projects to take available space */
+      margin-left: 50px; /* Space for the timeline nodes and line. Adjust if needed. */
+    }
+
+    .course-card {
+      display: flex; /* Make course-card a flex container */
+      align-items: flex-start; /* Align items to the top */
+      margin-bottom: 40px; /* Space between cards */
+      background-color: var(--card-bg-color, #fff); /* Fallback color if variable not defined */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 100%; /* Ensure cards take full width available in their container */
+      position: relative; /* For positioning .course-card-content, but not the node itself */
+    }
+
+    .course-card-left {
+      flex-shrink: 0; /* Prevent left section from shrinking */
+      margin-right: 20px;
+      text-align: center; /* Center the image and button */
+    }
+
+    /* Style for YouTube thumbnail image */
+    .course-image {
+      width: 200px; /* Match the previous image width */
+      height: auto; /* Maintain aspect ratio */
+      border: none;
+      border-radius: 4px;
+      display: block; /* Remove extra space below image */
+    }
+
+    .course-card-right {
+      flex-grow: 1; /* Allow right section to take remaining space */
+    }
+
+    .course-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: var(--text-color, #333);
+    }
+
+    .course-description {
+      font-size: 1em;
+      line-height: 1.6;
+      color: var(--text-color, #555);
+    }
+
+    /* Style for the dynamically added timeline nodes */
+    .timeline-node-js {
+      position: absolute;
+      left: 15px; /* Same horizontal position as timeline-bar */
+      transform: translate(-50%, -50%); /* Center the node on its top/left point */
+      width: 16px;
+      height: 16px;
+      background-color: #007bff; /* Blue color for nodes */
+      border-radius: 50%;
+      border: 3px solid var(--body-bg-color, #f4f4f4); /* Border color matches page background */
+      z-index: 2; /* Ensure node is above the line */
+      box-sizing: border-box;
+    }
+
+    /* Adjust navbar and footer for correct positioning */
+    .navbar {
+      z-index: 10; /* Ensure navbar is on top */
+      position: sticky;
+      top: 0;
+      background-color: var(--navbar-bg-color, #eee);
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: add a shadow */
+    }
+
+    #footer {
+      padding: 20px;
+      text-align: center;
+      background-color: var(--footer-bg-color, #eee);
+      margin-top: auto; /* Push footer to the bottom */
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .projects-section-wrapper {
+        flex-direction: column;
+        margin-left: 0; /* Reset margin */
+        padding: 0 15px; /* Add some padding on sides */
+      }
+      .timeline-bar {
+        left: 15px; /* Keep line on the left */
+        top: 20px;
+        bottom: 20px;
+      }
+      .project-timeline-container {
+        margin-left: 0; /* Reset margin */
+        width: 100%;
+      }
+      .course-card {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center items for stacked layout */
+        padding: 15px;
+      }
+      .course-card-left {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 15px; /* Add bottom margin */
+      }
+      .timeline-node-js {
+        left: 15px; /* Keep position relative to the timeline bar */
+        transform: translate(-50%, -50%); /* Re-center */
+      }
+      .course-image {
+        width: 100%; /* Make image full width on small screens */
+        height: auto; /* Adjust height automatically */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../index.html">
+      <span class="nav-title">EtherCAT-Controlled 3D Laser Scanning for Lead Frame Inspection </span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button">
+        <span class="button-text">🌙 / ☀️</span>
+      </button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com">
+        <span class="button-text">Contact Me</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 700px; margin: auto;">
+      My laser scanning project involved the comprehensive development of a high-precision 3D laser scanning system aimed at automating the inspection of critical semiconductor components like lead frames. This initiative progressed from foundational algorithms for 3D reconstruction and visualization using OpenCV and OpenGL, to integrating a high-performance industrial camera via the Spinnaker SDK for seamless, real-time data acquisition. Addressing performance bottlenecks, I implemented a robust multithreading architecture to separate camera acquisition from computationally intensive processing, significantly improving throughput. The culminating phase involved integrating industrial-grade EtherCAT motion control with SOEM, enabling encoder-triggered image acquisition to ensure metrological accuracy and highly repeatable 3D point cloud data. This project showcases an end-to-end engineering solution, transforming manual inspection into an efficient, automated, and precise process vital for quality control in semiconductor manufacturing. Below is the evolution timeline of my project, enjoy!.
+    </div>
+
+    <div class="projects-section-wrapper">
+      <div class="timeline-bar"></div>
+      <div class="project-timeline-container">
+        <div class="course-card">
+          <div class="course-card-left">
+            <a href="https://youtube.com/shorts/fSUgt4-KTmY?feature=share" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/fSUgt4-KTmY/0.jpg" alt="SOEM & Encoder-Triggered Acquisitions Demo" class="course-image">
+            </a>
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              Progression Step 4: SOEM & Encoder-Triggered Acquisitions
+            </div>
+            <div class="course-description">
+              The final, pivotal stage of this project involved integrating industrial-grade motion control to achieve metrological accuracy in 3D scanning. I leveraged SOEM (Simple Open EtherCAT Master) to establish high-speed, deterministic communication with a Yaskawa servo drive. The core innovation in this phase was to refactor the image acquisition pipeline such that camera captures were no longer time-based or continuous, but rather precisely triggered by significant, user-defined changes in the servo encoder's output position. This direct coupling of image acquisition to physical motion guarantees that each captured 2D laser profile corresponds to an exact, repeatable 'Z' coordinate in the 3D space, leading to highly accurate and repeatable point cloud data for lead frame inspection. This integration of real-time EtherCAT control transformed the system into a robust solution for automated industrial inspection.
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card-left">
+            <a href="https://youtu.be/FtmMOhH3NnU" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/FtmMOhH3NnU/0.jpg" alt="Multithreading for Speed Demo" class="course-image">
+            </a>
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              Progression Step 3: Multithreading for Speed
+            </div>
+            <div class="course-description">
+              As the project evolved towards higher performance requirements, a critical bottleneck emerged in the sequential execution of image acquisition and subsequent data processing. This phase addressed that challenge by implementing a robust multithreading architecture. The system was re-engineered to employ a dedicated "camera thread" responsible solely for high-speed image acquisition from the Spinnaker camera. Simultaneously, a separate "processing thread" was introduced to consume these images from a synchronized queue, performing the computationally intensive laser line detection and 3D point cloud generation. This concurrent design pattern dramatically improved throughput and reduced latency, enabling the system to handle significantly higher data rates and prepare for rapid physical scanning motions.
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card-left">
+            <a href="https://youtube.com/shorts/TnmNLg8rkjA?feature=share" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/TnmNLg8rkjA/0.jpg" alt="Spinnaker SDK Integration Demo" class="course-image">
+            </a>
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              Progression Step 2: Spinnaker SDK Integration (Acquisition, Processing, Visualization in one script)
+            </div>
+            <div class="course-description">
+              Building upon the foundational visualization, this phase focused on integrating a high-performance industrial camera using the Spinnaker SDK. The goal was to establish a seamless, end-to-end pipeline within a single application. This involved configuring the camera for optimal image acquisition parameters, capturing live video streams, and feeding these frames directly into the previously developed laser line detection and 3D point cloud generation algorithms. The entire process—from raw image capture to processed 3D visualization—now operates concurrently within the same script, demonstrating a robust, live 3D scanning capability. This integration was critical for transitioning from static image analysis to dynamic, real-time data acquisition and processing.
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card-left">
+            <a href="https://youtu.be/oojLz-V1zaI" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/oojLz-V1zaI/0.jpg" alt="Laser Line Visualization Demo" class="course-image">
+            </a>
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              Progression Step 1: Laser Line Visualization
+            </div>
+            <div class="course-description">
+              This initial phase of the laser scanning project focused on developing the fundamental algorithms for 3D reconstruction from a single projected laser line. Utilizing OpenCV, I implemented a custom algorithm to efficiently scan each column of a 2D grayscale image, identifying the peak intensity pixel. This pixel's coordinates represent a point on the laser line's profile. By accumulating these points across the image, a 2D representation of the laser line is generated. Subsequently, this 2D data is transformed into a 3D point cloud, with the 'Z' dimension derived from the sequential processing of the line. Finally, OpenGL was employed to render this 3D point cloud, allowing for interactive manipulation and visualization of the reconstructed surface. This step established the core mathematical and programming framework for depth extraction and 3D rendering.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/">
+      <img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/">
+      <img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS">
+      <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/>
+    </a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com">
+      <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/>
+    </a>
+  </div>
+
+  <script defer src="../js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectsWrapper = document.querySelector('.projects-section-wrapper');
+      const courseCards = document.querySelectorAll('.course-card');
+
+      const createTimelineNodes = () => {
+        // Remove existing nodes to prevent duplicates if function runs multiple times (e.g., on resize)
+        document.querySelectorAll('.timeline-node-js').forEach(node => node.remove());
+
+        // Check if projectsWrapper exists before proceeding
+        if (!projectsWrapper) {
+          console.error("'.projects-section-wrapper' not found. Cannot create timeline nodes.");
+          return;
+        }
+
+        const wrapperTop = projectsWrapper.getBoundingClientRect().top + window.scrollY;
+
+        courseCards.forEach(card => {
+          const cardRect = card.getBoundingClientRect();
+          const node = document.createElement('div');
+          node.classList.add('timeline-node-js');
+
+          // Calculate the vertical center of the card relative to the wrapper's top
+          const nodeTop = (cardRect.top + window.scrollY) - wrapperTop + (cardRect.height / 2);
+
+          node.style.top = `${nodeTop}px`;
+          projectsWrapper.appendChild(node); // Append nodes to the projects-section-wrapper
+        });
+      };
+
+      // Call on initial load
+      createTimelineNodes();
+
+      // Call on window resize to re-align nodes
+      window.addEventListener('resize', createTimelineNodes);
+    });
+  </script>
+</body>
+</html>
