@@ -11,6 +11,45 @@
   <link rel="stylesheet" href="../css/typography.css">
   <link rel="stylesheet" href="../css/utilities.css">
   <script defer src="../js/script.js"></script>
+
+  <!-- Add this CSS to your <head> or main CSS file -->
+  <style>
+    .projects-section-wrapper {
+      display: flex;
+      max-width: 1000px;
+      margin: 40px auto 20px auto;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .timeline-bar {
+      width: 4px;
+      background-color: #ccc;
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+      transform: translateX(-50%);
+    }
+    .project-timeline-container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-left: 50px;
+    }
+    .timeline-node-js {
+      position: absolute;
+      left: 15px;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      background-color: #007bff;
+      border-radius: 50%;
+      border: 3px solid #f4f4f4;
+      z-index: 2;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,96 +74,130 @@
       Beyond my technical projects, this section explores other important dimensions of my life—including my involvement in research, leadership in extracurricular organizations, and experiences that have shaped me outside the classroom. Whether it’s presenting research findings, organizing community initiatives, or pursuing personal interests that inspire me, these moments reflect the values and passions that drive my growth as both an engineer and an individual.
     </div>
 
-    <div class="project-details-content">
+    <!-- Replace your .project-details-content section with this: -->
+    <div class="projects-section-wrapper">
+      <div class="timeline-bar"></div>
+      <div class="project-timeline-container">
 
-      <!-- TIMELINE CARD 1 -->
-      <div class="course-card">
-        <div class="course-card-left">
-          <img src="../assets/images/Spring_symposium.jpeg" alt="Research Assistant Image" class="course-image">
-        </div>
-        <div class="course-card-right">
-          <div class="course-title">
-            Undergraduate Research Assistant @ Plasma & Dielectrics Lab Georgia Tech
+        <!-- Research Assistant Card -->
+        <div class="course-card">
+          <div class="course-card-left">
+            <img src="../assets/images/Spring_symposium.jpeg" alt="Research Assistant Image" class="course-image">
           </div>
-          <div class="course-description">
-            <!-- <p><strong>August 2024 - Present</strong></p> -->
-            <ul>
-              <li>Developed MATLAB scripting pipelines for modeling zinc oxide voltage-dependent resistor (MOVs) microstructures in COMSOL Multiphysics and assigning semiconductor granular properties, reducing Finite Element Analysis (FEA) setup time by 95%.</li>
-              <li>Executed thousands of FEA simulations using the Monte Carlo method to analyze the impact of material inhomogeneity on current distribution, generating statistical insights to optimize MOV design for high-energy handling power electronics.</li>
-              <li>An abstract based on this research was accepted for poster presentation at the Lester Eastman Conference 2025.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Learning Vivado RTL & Vitis HLS Course Card -->
-      <div class="course-card">
-        <div class="course-card-left">
-          <img src="../assets/images/uart_fsm_diagram.png" alt="Hardware Design & HLS Learning Image" class="course-image">
-          <a class="button" target="_blank" href="https://github.com/eldridgeS/LearnVerilog" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
-            <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub" style="width: 18px; height: 18px;" />
-            <span class="button-text">RTL Projects</span>
-          </a>
-          <a class="button" target="_blank" href="https://github.com/eldridgeS/LearnHLS" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
-            <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub" style="width: 18px; height: 18px;" />
-            <span class="button-text">HLS Projects</span>
-          </a>
-        </div>
-        <div class="course-card-right">
-          <div class="course-title">
-            Learning Vivado RTL & Vitis HLS
-          </div>
-          <div class="course-description">
-            Developed a strong foundation in FPGA design and hardware-software co-design by working with Xilinx Vivado for RTL (Verilog HDL) and Vitis HLS for high-level synthesis and hardware acceleration. Explored digital logic, synthesis, and HLS optimizations through hands-on projects such as 
-            <a href="https://github.com/eldridgeS/LearnVerilog/tree/main/uart_fsm" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">UART FSM</a> 
-            and 
-            <a href="https://github.com/eldridgeS/LearnHLS/tree/main/matrix_multiplication_project" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">fixed-point matrix multiplication</a>, 
-            focusing on performance tuning, modular architecture, and robust hardware integration. Gained practical experience with Linux-based toolchains, debugging, and iterative development workflows, preparing me for collaborative engineering environments and advanced simulation tools.
+          <div class="course-card-right">
+            <div class="course-title">
+              Undergraduate Research Assistant @ <a href="https://graber.ece.gatech.edu/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Plasma & Dielectrics Lab Georgia Tech</a>
+            </div>
+            <div class="course-description">
+              <!-- <p><strong>August 2024 - Present</strong></p> -->
+              <ul>
+                <li>Developed MATLAB scripting pipelines for modeling zinc oxide voltage-dependent resistor (MOVs) microstructures in COMSOL Multiphysics and assigning semiconductor granular properties, reducing Finite Element Analysis (FEA) setup time by 95%.</li>
+                <li>Executed thousands of FEA simulations using the Monte Carlo method to analyze the impact of material inhomogeneity on current distribution, generating statistical insights to optimize MOV design for high-energy handling power electronics.</li>
+                <li>An abstract based on this research was accepted for poster presentation at the Lester Eastman Conference 2025.</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-
-
-      <div class="course-card">
-        <div class="course-card-left">
-          <a href="https://www.youtube.com/watch?v=w0kHhLwCxLQ" target="_blank" rel="noopener noreferrer">
-            <img src="../assets/images/waste_detector.png" alt="Wordle Game Demo" class="course-image">
-          </a>
-          <a class="button" target="_blank" href="https://github.com/eldridgeS/yolov5/tree/master" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
-            <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub" style="width: 18px; height: 18px;" />
-            <span class="button-text">View on GitHub</span>
-          </a>
-        </div>
-        <div class="course-card-right">
-          <div class="course-title">
-            <a href="https://www.youtube.com/watch?v=w0kHhLwCxLQ" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">
-              YOLOv5 Waste Detector Flask Web Application
+        <!-- Learning Vivado RTL & Vitis HLS Course Card -->
+        <div class="course-card">
+          <div class="course-card-left">
+            <img src="../assets/images/uart_fsm_diagram.png" alt="Hardware Design & HLS Learning Image" class="course-image">
+            <a class="button" target="_blank" href="https://github.com/eldridgeS/LearnVerilog" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+              <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub" style="width: 18px; height: 18px;" />
+              <span class="button-text">RTL Projects</span>
+            </a>
+            <a class="button" target="_blank" href="https://github.com/eldridgeS/LearnHLS" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+              <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub" style="width: 18px; height: 18px;" />
+              <span class="button-text">HLS Projects</span>
             </a>
           </div>
-          <div class="course-description">
-            As a college student living on campus, I often find myself unable to determine whether certain waste, like the tons of different types of plastics, can be put into the recycling bin. Therefore, I sought to fix this problem for myself. I leveraged the YOLOv5's powerful and comprehensive Object Detection Model to train my own model composed of various common college student waste. The final product is a low-power server (ran on the Jetson Orin Nano) capable of identifying waste types and providing proper disposal instructions.
+          <div class="course-card-right">
+            <div class="course-title">
+              Learning Vivado RTL & Vitis HLS
+            </div>
+            <div class="course-description">
+              Developed a strong foundation in FPGA design and hardware-software co-design by working with Xilinx Vivado for RTL (Verilog HDL) and Vitis HLS for high-level synthesis and hardware acceleration. Explored digital logic, synthesis, and HLS optimizations through hands-on projects such as 
+              <a href="https://github.com/eldridgeS/LearnVerilog/tree/main/uart_fsm" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">UART FSM</a> 
+              and 
+              <a href="https://github.com/eldridgeS/LearnHLS/tree/main/matrix_multiplication_project" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">fixed-point matrix multiplication</a>, 
+              focusing on iterative performance tuning, modular architecture, and robust hardware-software integration. Gained practical experience with Linux-based toolchains, debugging multi-language programs, and Electronic Design Automation (EDA) tools, enhancing my ability to design efficient and scalable hardware systems.
+            </div>
           </div>
         </div>
+
+
+
+        <div class="course-card">
+          <div class="course-card-left">
+            <a href="https://www.youtube.com/watch?v=w0kHhLwCxLQ" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/images/waste_detector.png" alt="Wordle Game Demo" class="course-image">
+            </a>
+            <a class="button" target="_blank" href="https://github.com/eldridgeS/yolov5/tree/master" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+              <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub" style="width: 18px; height: 18px;" />
+              <span class="button-text">View on GitHub</span>
+            </a>
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              <a href="https://www.youtube.com/watch?v=w0kHhLwCxLQ" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">
+                YOLOv5 Waste Detector Flask Web Application
+              </a>
+            </div>
+            <div class="course-description">
+              As a college student living on campus, I often find myself unable to determine whether certain waste, like the tons of different types of plastics, can be put into the recycling bin. Therefore, I sought to fix this problem for myself. I leveraged the YOLOv5's powerful and comprehensive Object Detection Model to train my own model composed of various common college student waste, and wrote a Flask script to run my simple HTML web interface. The final product is a low-power server (ran on the Jetson Orin Nano) capable of identifying waste types and providing proper disposal instructions.
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Guest Services Manager Card -->
+        <div class="course-card">
+          <div class="course-card-left">
+            <img src="../assets/images/scec.png" alt="Guest Services Manager" class="course-image">
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              Guest Services Manager<br>
+              <span style="font-weight: normal; font-size: 0.95em;">
+                <a href="https://studentcenter.gatech.edu/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">
+                  Student & Campus Event Centers, Georgia Tech
+                </a>
+              </span>
+            </div>
+            <div class="course-description">
+              <strong>May 2024 – July 2024</strong>
+              <ul>
+                <li>Delivered logistical, technical, and customer service support for campus events, ensuring seamless operations for gatherings with over 1,000 participants.</li>
+                <li>Monitored facility safety and operational conditions across multiple departmental buildings, proactively addressing issues to maintain a safe environment.</li>
+                <li>Coordinated the setup and arrangement of thousands of chairs and tables for large-scale events, including the GT PSA Muslim Student Tournament and final exams week.</li>
+                <li>Demonstrated adaptability and leadership by supporting event operations during a campus-wide chilled water and air conditioning outage.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- TIMELINE CARD 3 -->
+        <div class="course-card">
+          <div class="course-card-left">
+            <img src="../assets/images/ns.jpeg" alt="National Service" class="course-image">
+            <a class="button" target="_blank" href="../assets/resources/NS_Service_Transcript.pdf" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+              <span class="button-text">Service Transcript</span>
+            </a>
+          </div>
+          <div class="course-card-right">
+            <div class="course-title">
+              Singapore National Service
+            </div>
+            <div class="course-description">
+              As an Armament Technician with the Singapore Armed Forces, I performed daily maintenance and repair on various heavy artillery and firearms, including the Singapore Lightweight Howitzer, and supported artillery combat exercises. Concurrently, I served as Chairman of the NSF Council for the 6th Army Maintenance Base, where I managed the council acting as an intermediary between regular servicemen and over 150 Full-time Servicemen (NSFs). In this role, I addressed requests and feedback to superiors, maintained high cohesion and cordiality among technicians, and organized unit anniversary and cultural events for over 200 attendees, demonstrating strong event-planning and coordination skills. My outstanding conduct earned me a personal testimonial from my Commanding Officer.
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more timeline "course-card" blocks here as needed -->
       </div>
-
-      <!-- TIMELINE CARD 3 -->
-      <div class="course-card">
-        <div class="course-card-left">
-          <img src="../assets/images/ns.jpeg" alt="National Service" class="course-image">
-        </div>
-        <div class="course-card-right">
-          <div class="course-title">
-            Singapore National Service
-          </div>
-          <div class="course-description">
-            As an Armament Technician with the Singapore Armed Forces, I performed daily maintenance and repair on various heavy artillery and firearms, including the Singapore Lightweight Howitzer, and supported artillery combat exercises. Concurrently, I served as Chairman of the NSF Council for the 6th Army Maintenance Base, where I managed the council acting as an intermediary between regular servicemen and over 150 Full-time Servicemen (NSFs). In this role, I addressed requests and feedback to superiors, maintained high cohesion and cordiality among technicians, and organized unit anniversary and cultural events for over 200 attendees, demonstrating strong event-planning and coordination skills. My outstanding conduct earned me a personal testimonial from my Commanding Officer.
-          </div>
-        </div>
-      </div>
-
-      <!-- Add more timeline "course-card" blocks here as needed -->
-
     </div>
   </div>
 
@@ -143,5 +216,29 @@
       <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/>
     </a>
   </div>
+
+  <!-- Add this JS before </body> for timeline dots -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectsWrapper = document.querySelector('.projects-section-wrapper');
+      const courseCards = document.querySelectorAll('.course-card');
+
+      const createTimelineNodes = () => {
+        document.querySelectorAll('.timeline-node-js').forEach(node => node.remove());
+        if (!projectsWrapper) return;
+        const wrapperTop = projectsWrapper.getBoundingClientRect().top + window.scrollY;
+        courseCards.forEach(card => {
+          const cardRect = card.getBoundingClientRect();
+          const node = document.createElement('div');
+          node.classList.add('timeline-node-js');
+          const nodeTop = (cardRect.top + window.scrollY) - wrapperTop + (cardRect.height / 2);
+          node.style.top = `${nodeTop}px`;
+          projectsWrapper.appendChild(node);
+        });
+      };
+      createTimelineNodes();
+      window.addEventListener('resize', createTimelineNodes);
+    });
+  </script>
 </body>
 </html>
