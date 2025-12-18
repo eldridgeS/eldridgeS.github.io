@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>4-bit Adder Design | Eldridge Surianto</title>
+  <meta name="description" content="Transistor-Level 4-bit Adder Design with Full-Custom Layout">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .section-wrapper {
+      max-width: 900px;
+      margin: 40px auto 20px auto;
+    }
+
+    .section-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: var(--text-color, #333);
+    }
+
+    .section-content {
+      font-size: 1em;
+      line-height: 1.8;
+      color: var(--text-color, #555);
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .image-wrapper {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .image-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .image-caption {
+      font-size: 0.9em;
+      font-style: italic;
+      color: var(--text-color, #777);
+      margin-top: 10px;
+    }
+
+    .project-highlights {
+      background-color: var(--card-bg-color, #f9f9f9);
+      border-left: 4px solid #007bff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .project-highlights h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+
+    .project-highlights ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .project-highlights li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      z-index: 10;
+      position: sticky;
+      top: 0;
+      background-color: var(--navbar-bg-color, #eee);
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #footer {
+      padding: 20px;
+      text-align: center;
+      background-color: var(--footer-bg-color, #eee);
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .image-container {
+        flex-direction: column;
+      }
+
+      .image-wrapper {
+        min-width: 100%;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../index.html">
+      <span class="nav-title">Transistor-Level 4-bit Adder Design with Full-Custom Layout</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button">
+        <span class="button-text">🌙 / ☀️</span>
+      </button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com">
+        <span class="button-text">Contact Me</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 900px; margin: auto;">
+      This project involved the design and optimization of a 4-bit adder circuit at the transistor level using Cadence Virtuoso. The design encompasses a complete VLSI workflow: from schematic capture through full-custom CMOS layout, to rigorous timing analysis and optimization of critical paths. The project demonstrates practical expertise in industry-standard CAD tools, understanding of CMOS circuit design principles, and the ability to optimize hardware for both correctness and performance under various process conditions.
+    </div>
+
+    <div class="section-wrapper">
+      
+      <div class="section-title">Project Overview</div>
+      <div class="section-content">
+        The objective of this project was to design a fully functional 4-bit adder circuit from first principles at the transistor level. This involved creating efficient CMOS implementations of fundamental building blocks (inverters, NAND gates, XOR gates) and hierarchically combining them to form a complete adder. The design was then synthesized into a full-custom layout, where every transistor and routing path was manually optimized for performance and area efficiency.
+      </div>
+
+      <div class="project-highlights">
+        <h3>Key Design Objectives</h3>
+        <ul>
+          <li><strong>Transistor-Level Implementation:</strong> All logic gates implemented from NMOS and PMOS transistor primitives</li>
+          <li><strong>Full-Custom Layout:</strong> Hand-crafted physical layout optimizing for minimal area and delay</li>
+          <li><strong>Timing Optimization:</strong> Critical path analysis and device sizing to meet performance targets</li>
+          <li><strong>Process Robustness:</strong> Verification across multiple process corners and operating conditions</li>
+          <li><strong>Complete Verification:</strong> Comprehensive simulation and failure path analysis</li>
+        </ul>
+      </div>
+
+      <div class="image-container">
+        <div class="image-wrapper">
+          <img src="../assets/images/4bitaddercomputerschematic.png" alt="4-bit Adder Schematic">
+          <div class="image-caption">Transistor-level schematic of the 4-bit adder showing hierarchical gate structure</div>
+        </div>
+        <div class="image-wrapper">
+          <img src="../assets/images/4bitadderlayout.png" alt="4-bit Adder Layout">
+          <div class="image-caption">Full-custom CMOS layout with optimized routing and device placement</div>
+        </div>
+      </div>
+
+      <div class="section-title">Design Methodology</div>
+      <div class="section-content">
+        The design followed a hierarchical, bottom-up approach:
+        <br><br>
+        <strong>1. Basic Logic Gates (Transistor Level):</strong> Started with fundamental CMOS gates including inverters, NAND gates, and XOR gates, each optimized for speed and power efficiency.
+        <br><br>
+        <strong>2. Full Adder Cell:</strong> Combined basic gates to create a full adder (1-bit) that adds three inputs (A, B, Cin) and produces sum and carry-out.
+        <br><br>
+        <strong>3. 4-bit Adder:</strong> Cascaded four full adder cells with carry propagation logic to create the complete 4-bit adder circuit.
+        <br><br>
+        <strong>4. Layout Design:</strong> Translated the schematic into physical layout, carefully placing transistors and routing metal layers to minimize parasitics and delay.
+      </div>
+
+      <div class="project-highlights">
+        <h3>Technical Implementation Details</h3>
+        <ul>
+          <li><strong>Tool Used:</strong> Cadence Virtuoso for schematic entry and full-custom layout</li>
+          <li><strong>Design Language:</strong> Schematic-based (transistor-level) with physical layout in standard cell design methodology</li>
+          <li><strong>Simulation:</strong> Cadence Spectre for transistor-level SPICE simulation and timing analysis</li>
+          <li><strong>Design Rule Checking (DRC):</strong> Verified compliance with process technology design rules</li>
+          <li><strong>Layout vs. Schematic (LVS):</strong> Ensured layout accurately represents schematic topology</li>
+        </ul>
+      </div>
+
+      <div class="section-title">Timing Analysis & Optimization</div>
+      <div class="section-content">
+        A critical aspect of this project was identifying and optimizing the critical paths through the adder:
+        <br><br>
+        <strong>Path Analysis:</strong> Traced timing paths from inputs to outputs, identifying which signal transitions take the longest. For an adder, the carry propagation chain is typically the critical path—each stage must wait for the carry from the previous stage before computing its own output.
+        <br><br>
+        <strong>Failing Paths Identification:</strong> Through transient simulation with various input patterns, potential timing violations were identified under worst-case conditions (temperature corners, supply voltage variations, process corners).
+        <br><br>
+        <strong>Optimization Techniques:</strong>
+        <ul style="margin-top: 10px;">
+          <li><strong>Device Sizing:</strong> Increased transistor W/L ratios on critical paths to reduce delay</li>
+          <li><strong>Routing Optimization:</strong> Minimized wire lengths and reduced parasitic capacitance on critical signal paths</li>
+          <li><strong>Buffer Insertion:</strong> Added strategic buffers to break long RC chains and improve signal integrity</li>
+          <li><strong>Layout Placement:</strong> Positioned critical gates close together to minimize interconnect delay</li>
+        </ul>
+      </div>
+
+      <div class="project-highlights">
+        <h3>Simulation & Verification</h3>
+        <ul>
+          <li><strong>Functional Verification:</strong> Tested all 16 possible input combinations for each bit position to verify correct addition</li>
+          <li><strong>Timing Verification:</strong> Applied timing constraints and verified all paths meet delay requirements</li>
+          <li><strong>Corner Analysis:</strong> Simulated across process corners (typical, fast, slow) and temperature ranges (-40°C to 125°C)</li>
+          <li><strong>Power Analysis:</strong> Characterized dynamic and static power consumption under operating conditions</li>
+          <li><strong>Failure Path Analysis:</strong> Identified and corrected any critical paths that violated timing constraints</li>
+        </ul>
+      </div>
+
+      <div class="section-title">Key Learnings & Takeaways</div>
+      <div class="section-content">
+        This project provided hands-on experience with:
+        <br><br>
+        ✓ <strong>Transistor-level circuit design:</strong> Understanding CMOS logic families and how to build complex circuits from basic gates
+        <br>
+        ✓ <strong>Full-custom layout design:</strong> Physical layout considerations, routing strategies, and parasitic extraction
+        <br>
+        ✓ <strong>Timing closure:</strong> Identifying critical paths, understanding timing slack, and optimizing designs to meet constraints
+        <br>
+        ✓ <strong>Design automation tools:</strong> Proficiency with industry-standard Cadence tools (Virtuoso, Spectre)
+        <br>
+        ✓ <strong>Hierarchical design methodology:</strong> Building complex circuits from reusable, verified components
+        <br>
+        ✓ <strong>Physical design principles:</strong> Trade-offs between area, speed, and power in VLSI design
+      </div>
+
+      <div class="section-title">Design Specifications</div>
+      <div class="project-highlights">
+        <ul>
+          <li><strong>Inputs:</strong> 4-bit operand A, 4-bit operand B, carry-in (Cin)</li>
+          <li><strong>Outputs:</strong> 4-bit sum (S), carry-out (Cout)</li>
+          <li><strong>Technology:</strong> CMOS (standard process node)</li>
+          <li><strong>Supply Voltage:</strong> Nominal 5V (or per process specification)</li>
+          <li><strong>Performance Target:</strong> Optimized for speed with timing constraints verified</li>
+          <li><strong>Functionality:</strong> Ripple Carry Adder (RCA) architecture</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/">
+      <img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/">
+      <img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS">
+      <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/>
+    </a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com">
+      <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/>
+    </a>
+  </div>
+
+  <script defer src="../js/script.js"></script>
+</body>
+</html>
