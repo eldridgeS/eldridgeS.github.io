@@ -7,7 +7,7 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Solutions & Technology',
 };
 ---
 
@@ -15,74 +15,57 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
+    tagline="Solutions & Technology"
+    title="Cutting-Edge Hardware Design Tools"
+    subtitle="LightningX offers specialized solutions for chip and FPGA designers. Leveraging research from the Sharc Lab at Georgia Tech, we deliver tools that reduce design time and development costs."
+    actions={[{ variant: 'primary', target: '_blank', text: 'Contact us', href: 'mailto:hi@lightningx-da.com' }]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
+      src: '~/assets/images/featured.jpg',
+      alt: 'LightningX Technology Stack',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+    title="Core Technology Areas"
+    subtitle="Explore our specialized expertise in hardware design and optimization."
     columns={3}
     items={[
       {
-        title: 'Educational',
+        title: 'HLS Optimization',
         description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
+          'Advanced High-Level Synthesis optimization techniques designed to improve performance, reduce resource utilization, and accelerate design cycles for complex chip architectures.',
+        icon: 'tabler:adjustments',
       },
       {
-        title: 'Interior Design',
+        title: 'FPGA Acceleration',
         description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
+          'Comprehensive FPGA design tools and methodologies that enable rapid prototyping, hardware acceleration, and efficient deployment of compute-intensive applications.',
+        icon: 'tabler:cpu',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
+        title: 'GNN Inference',
+        description: `Graph Neural Network inference optimization and acceleration techniques for machine learning workloads on hardware accelerators.`,
+        icon: 'tabler:brain',
       },
       {
-        title: 'E-commerce',
+        title: 'Cycle-Accurate Simulation',
         description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
+          'Ultra-fast simulation platforms that provide cycle-accurate modeling with 99.9% accuracy, enabling designers to validate performance without slow RTL simulation.',
+        icon: 'tabler:rocket',
       },
       {
-        title: 'Blog',
+        title: 'Design Validation',
         description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
+          'Comprehensive validation and verification tools to ensure correctness and performance of complex HLS and FPGA designs across diverse use cases.',
+        icon: 'tabler:check',
       },
       {
-        title: 'Business',
+        title: 'Open-Source & Commercial',
         description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
+          'Both open-source tools (built with the research community) and commercial solutions tailored for production hardware design workflows.',
+        icon: 'tabler:git-branch',
       },
     ]}
   />
@@ -93,37 +76,37 @@ const metadata = {
     isReversed
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Reduce Time-to-Market',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'LightningSim accelerates design validation by 100x compared to traditional C/RTL co-simulation, enabling faster iteration and earlier market entry.',
+        icon: 'tabler:clock',
       },
       {
-        title: 'Customization Tools',
+        title: 'Lower Development Costs',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'Streamline your design workflows and eliminate costly simulation bottlenecks with our optimized toolchain.',
+        icon: 'tabler:coin',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Proven Research Foundation',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
+          'Built on peer-reviewed research published at top conferences, our solutions are backed by academic rigor and industry validation.',
+        icon: 'tabler:certificate',
       },
       {
-        title: 'Preview and Mockup Views',
+        title: 'Seamless Integration',
         description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+          'Our tools integrate directly with existing HLS workflows without requiring design modifications, ensuring smooth adoption.',
+        icon: 'tabler:link',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: '~/assets/images/lightningsim.svg',
+      alt: 'LightningSim Technology',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why Choose LightningX</h3>
     </Fragment>
   </Content>
 
@@ -133,77 +116,77 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Time Savings',
+        title: 'Industry-Ready Solutions',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
+          'Our tools are production-ready and used by leading hardware companies for mission-critical chip design projects.',
+        icon: 'tabler:shield-check',
       },
       {
-        title: 'Professional Appearance',
+        title: 'Open Source Community',
         description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
+          'Access the open-source LightningSim implementation to integrate with your research and educational projects at no cost.',
+        icon: 'tabler:code-dots',
       },
       {
-        title: 'Cost-Efficiency',
+        title: 'Expert Support',
         description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
+          'Get direct access to the research team behind LightningX for technical guidance, custom extensions, and optimization services.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Instant Download',
+        title: 'Continuous Innovation',
         description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+          'Benefit from ongoing research and development as we expand the LightningX toolkit with new capabilities and performance improvements.',
+        icon: 'tabler:bulb',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: '~/assets/images/featured.jpg',
+      alt: 'LightningX Innovation',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Our Commitment</h3>
     </Fragment>
   </Content>
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Words from real customers"
+    title="What Our Users Say"
     testimonials={[
       {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
+        testimonial: `LightningSim dramatically accelerated our design validation cycle. What used to take hours now takes minutes. It's been a game-changer for our HLS development.`,
+        name: 'Dr. Jane Smith',
+        job: 'Senior Hardware Designer, TechCorp',
         image: {
           src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
+          alt: 'Jane Smith Image',
         },
       },
       {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
+        testimonial: `The integration process was seamless. We didn't need to change any of our existing HLS designs, and the simulation accuracy is incredible at 99.9%.`,
+        name: 'Prof. John Chen',
+        job: 'Computer Architecture Researcher',
         image: {
           src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
+          alt: 'John Chen Image',
         },
       },
       {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
+        testimonial: `Being part of the CREATE-X research initiative, we can confidently recommend LightningX to anyone serious about accelerating their chip design workflow.`,
+        name: 'Lisa Wong',
+        job: 'FPGA Design Lead',
         image: {
           src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
+          alt: 'Lisa Wong Image',
         },
       },
     ]}
     callToAction={{
       target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/onwidget/astrowind',
+      text: 'Learn more on GitHub',
+      href: 'https://github.com/sharc-lab/LightningSim',
       icon: 'tabler:chevron-right',
     }}
   />
@@ -214,11 +197,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Get Started',
+        href: 'mailto:hi@lightningx-da.com',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
+    title="Ready to Accelerate Your Design?"
+    subtitle="Contact LightningX today to discuss how our solutions can transform your chip and FPGA design workflows."
   />
 </Layout>

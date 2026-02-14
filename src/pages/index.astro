@@ -23,38 +23,47 @@ const metadata = {
 image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development board with LightningSim UI fading in on the right' }}
 >
 <Fragment slot="title">
-  <Image src={SmallLogo} class="align-baseline inline-block dark:hidden" style="height: 0.7333em; width: auto;" alt="X" />
-  <Image src={SmallLogoDark} class="align-baseline hidden dark:inline-block" style="height: 0.7333em; width: auto;" alt="X" />
-  is for <span class="text-accent dark:text-white highlight">exascale.</span>
+  <span class="text-accent dark:text-white highlight">Faster Simulation.</span><br/>
+  <span class="text-accent dark:text-white highlight">Scalable Optimization.</span>
 </Fragment>
 <Fragment slot="subtitle">
-  LightningX technology accelerates design time for <span class="font-semibold">exascale chip and FPGA designs.</span>
+  LightningX accelerates design time and reduces costs for chip and FPGA designers. Discover tools built by engineers from <a href="https://sharclab.ece.gatech.edu/" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline;">Sharc Lab</a> at Georgia Tech.
+  <br/><br/>
+  <Image src={SmallLogo} class="align-baseline inline-block dark:hidden mr-1" style="height: 0.9em; width: auto;" alt="X" />
+  <Image src={SmallLogoDark} class="align-baseline hidden dark:inline-block mr-1" style="height: 0.9em; width: auto;" alt="X" />
+  <span style="font-size: 0.95em; font-style: italic;">is for exascale.</span>
 </Fragment>
 </Hero>
 
   <!-- Features Section -->
   <Features
     id="features"
-    title="Our Vision"
-    subtitle="Innovative solutions designed to empower chip and FPGA designers with cutting-edge tools."
+    title="Our Core Offerings"
+    subtitle="LightningX provides cutting-edge tools for chip and FPGA design optimization, reducing time-to-market and development costs."
     items={[
       {
         title: 'LightningSim',
         description:
-          'Our flagship simulation platform, LightningSim, offers unparalleled speed and accuracy to enhance your design process.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Future Innovations',
-        description:
-          'From synthesis tools to AI-driven optimization, we’re actively developing a suite of products to transform design workflows.',
+          'Ultra-fast cycle-accurate simulation for HLS designs. Accelerate C/RTL co-simulation by 100x with 99.9% accuracy and integrate seamlessly into existing workflows.',
         icon: 'tabler:rocket',
       },
       {
-        title: 'Customization',
+        title: 'HLS Optimization',
         description:
-          'Tailored solutions to meet the unique challenges of your design projects, ensuring maximum efficiency and productivity.',
+          'Advanced synthesis optimization techniques to improve performance and resource utilization in High-Level Synthesis designs.',
         icon: 'tabler:adjustments',
+      },
+      {
+        title: 'EDA Acceleration',
+        description:
+          'Specialized tools for FPGA and ASIC design acceleration, enabling faster prototyping and deployment for hardware-accelerated applications.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Performance Analysis',
+        description:
+          'Comprehensive analysis and profiling tools to identify bottlenecks, optimize resource allocation, and maximize design efficiency.',
+        icon: 'tabler:chart-line',
       },
     ]}
   />
@@ -62,6 +71,7 @@ image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development bo
   <!-- Steps Section -->
   <Steps
     title="Get to Know LightningSim"
+    isDark={true}
     items={[
       {
         title: 'Feature 1: <span class="font-medium">Ultra-fast Cycle-accurate Simulation</span>',
@@ -79,28 +89,30 @@ image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development bo
         title: 'Feature 3: <span class="font-medium">Ultra-simple Integration with HLS</span>',
         description:
           'Don\'t want to change your existing HLS designs? LightningSim does not require any changes -- just by pointing to your synthesized HLS design and we are good to go.',
-        icon: 'tabler:leaf',
+        icon: 'tabler:plug',
       },
     ]}
-    image={{
-      src: '~/assets/images/lightningsim.svg', alt: 'LightningSim logo',
-    }}
+    image={`<iframe width="100%" height="400" src="https://www.youtube.com/embed/JCQniXBqYjI" title="LightningSim Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="rounded-md shadow-lg"></iframe>`}
+    isReversed={true}
   />
 
   <Steps 
   title="Deep Dive into LightningSim" 
+  isDark={true}
   items={[
     {
-      title: `Understand how LightningSim works from our published papers – 
-        <a href="https://arxiv.org/abs/2304.11219" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">LightningSim</a> 
-        and 
-        <a href="https://arxiv.org/abs/2404.09471" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;" }}>LightningSimV2</a>`,
-      icon: 'tabler:file'
+      title: `Watch our
+        <a href="https://www.youtube.com/watch?v=JCQniXBqYjI&pp=ygUMTGlnaHRuaW5nU2lt" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">talk</a> to 
+        get to know LightningSim better`,
+      icon: 'tabler:video'
     },
     {
-      title: `Get hands-on with LightningSim using our open-sourced code on
-        <a href="https://github.com/sharc-lab/LightningSim.git" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">GitHub</a> `,
-      icon: 'tabler:code'
+      title: `Understand how LightningSim works from our published papers – 
+        <a href="https://arxiv.org/abs/2304.11219" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">LightningSim</a>, 
+        <a href="https://arxiv.org/abs/2404.09471" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">LightningSimV2</a>,
+        and
+        <a href="https://arxiv.org/abs/2508.19299" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">OmniSim</a>`,
+      icon: 'tabler:file'
     },
     {
       title: `Check out the
@@ -109,10 +121,9 @@ image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development bo
       icon: 'tabler:folder'
     },
     {
-      title: `Watch our
-        <a href="https://www.youtube.com/watch?v=JCQniXBqYjI&pp=ygUMTGlnaHRuaW5nU2lt" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">talk</a> to 
-        get to know LightningSim better`,
-      icon: 'tabler:video'
+      title: `Get hands-on with LightningSim using our open-sourced code on
+        <a href="https://github.com/sharc-lab/LightningSim.git" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline; font-style: italic;">GitHub</a> `,
+      icon: 'tabler:git-fork'
     },
   ]}
   />

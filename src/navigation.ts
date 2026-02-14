@@ -6,6 +6,7 @@ export const headerData = {
             { text: 'Our Team', href: '/team', target: '_blank', rel: 'noopener noreferrer'},
             { text: 'Profiling Results', href: '/profiling', target: '_blank', rel: 'noopener noreferrer'}
   ],
+  showToggleTheme: true,
 };
 
 export const footerData = {
