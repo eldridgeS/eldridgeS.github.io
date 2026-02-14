@@ -1,14 +1,10 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import HeroSlider from '~/components/widgets/HeroSlider.astro';
 import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Image from '~/components/common/Image.astro';
-import SmallLogo from '~/assets/images/logo-small.svg';
-import SmallLogoDark from '~/assets/images/logo-small-dark.svg';
 
 const metadata = {
   title: 'LightningX — Accelerate Time-to-Market',
@@ -18,22 +14,37 @@ const metadata = {
 
 <Layout metadata={metadata}>
 
-  <!-- Hero Section -->
-<Hero
-image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development board with LightningSim UI fading in on the right' }}
->
-<Fragment slot="title">
-  <span class="text-accent dark:text-white highlight">Faster Simulation.</span><br/>
-  <span class="text-accent dark:text-white highlight">Scalable Optimization.</span>
-</Fragment>
-<Fragment slot="subtitle">
-  LightningX accelerates design time and reduces costs for chip and FPGA designers. Discover tools built by engineers from <a href="https://sharclab.ece.gatech.edu/" target="_blank" rel="noopener noreferrer" style="color: #FF69B4; text-decoration: underline;">Sharc Lab</a> at Georgia Tech.
-  <br/><br/>
-  <Image src={SmallLogo} class="align-baseline inline-block dark:hidden mr-1" style="height: 0.9em; width: auto;" alt="X" />
-  <Image src={SmallLogoDark} class="align-baseline hidden dark:inline-block mr-1" style="height: 0.9em; width: auto;" alt="X" />
-  <span style="font-size: 0.95em; font-style: italic;">is for exascale.</span>
-</Fragment>
-</Hero>
+  <!-- Hero Slider Section -->
+  <HeroSlider
+    title="Faster Simulation. Scalable Optimization."
+    image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development board with LightningSim UI fading in on the right' }}
+    slides={[
+      {
+        title: 'Ultra-fast Cycle-accurate Simulation',
+        description: 'LightningSim accelerates your C/RTL co-simulation by 100x with 99.9% accuracy. Don\'t waste time on slow simulations.',
+        buttonText: 'Learn More',
+        buttonHref: '#features'
+      },
+      {
+        title: 'Scalable Optimization',
+        description: 'Reduce costs and time-to-market for chip and FPGA designs. Flexible solutions from open-source to enterprise.',
+        buttonText: 'Explore',
+        buttonHref: '#features'
+      },
+      {
+        title: 'HLS & FPGA Acceleration',
+        description: 'Advanced synthesis optimization and hardware acceleration tools for next-generation chip designs.',
+        buttonText: 'Discover',
+        buttonHref: '#features'
+      },
+      {
+        title: 'Built on Research',
+        description: 'Tools developed by the Sharc Lab at Georgia Tech. Proven by peer-reviewed research at top conferences.',
+        buttonText: 'View Papers',
+        buttonHref: '#papers'
+      }
+    ]}
+  />
 
   <!-- Features Section -->
   <Features
