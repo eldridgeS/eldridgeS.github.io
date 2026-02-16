@@ -4,9 +4,9 @@ export const headerData = {
   links: [],
   actions: [{ text: 'Contact', href: 'mailto:hi@lightningx-da.com', target: '_blank' },
             { text: 'Our Team', href: '/team', target: '_blank', rel: 'noopener noreferrer'},
-            { text: 'Profiling Results', href: '/profiling', target: '_blank', rel: 'noopener noreferrer'}
+            { text: 'Performance Insights', href: '/performance', target: '_blank', rel: 'noopener noreferrer'}
   ],
-  showToggleTheme: true,
+  //showToggleTheme: true,
 };
 
 export const footerData = {

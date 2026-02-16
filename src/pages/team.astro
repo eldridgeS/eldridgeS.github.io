@@ -3,8 +3,8 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Image from '~/components/common/Image.astro';
 ---
@@ -13,31 +13,115 @@ import Image from '~/components/common/Image.astro';
   <Fragment slot="title">
   Meet Our Team!<span class="text-accent dark:text-white highlight">exascale.</span>
   </Fragment>
-  <!-- Features Section -->
-  <Features
-    id="team_members"
-    title="Meet our Team Members!"
-    items={[
+  
+  <!-- Hero Section -->
+  <Hero
+    tagline="Our Team"
+    title="Building the Future Together"
+    subtitle="A talented team of researachers and engineers dedicated to delivering exascale solutions that push the boundaries of what's possible in EDA."
+  />
+
+  <!-- Team Stats -->
+  <Stats
+    title="By The Numbers"
+    subtitle="Our team's track record speaks for itself. All AI Slop."
+    stats={[
       {
-        title: 'Dr. Callie Hao',
-        description: 'Project Lead',
-        image: '/images/Callie.png',
+        amount: '50+',
+        title: 'Years of Combined Experience',
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Rishov Sarkar',
-        description: 'Technical Lead',
-        image: '/images/Rishov.png',
+        amount: '4',
+        title: 'Core Team Members',
+        icon: 'tabler:users',
       },
       {
-        title: 'Pramath Balisavira Guruprasanna',
-        description: 'Engineering Lead',
-        image: '/images/Pramath.png',
+        amount: '100%',
+        title: 'Commitment to Excellence',
+        icon: 'tabler:star',
       },
       {
-        title: 'Sudiksha Das',
-        description: 'Management Lead',
-        image: '/images/Sudiksha.png',
+        amount: '∞',
+        title: 'Innovative Solutions',
+        icon: 'tabler:bulb',
       }
     ]}
   />
-    </Layout>
+
+  <!-- Team Members -->
+  <Features
+    id="team_members"
+    title="Meet The Innovators"
+    subtitle="The brilliant minds behind exascale technology"
+    columns={2}
+    items={[
+      {
+        title: 'Dr. Callie Hao',
+        description: 'CTO | Visionary & Strategic Director',
+        image: '/images/Callie.png',
+        icon: 'tabler:crown',
+      },
+      {
+        title: 'Rishov Sarkar',
+        description: 'CEO | Core Architecture & Innovation',
+        image: '/images/Rishov.png',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Pramath Balisavira Guruprasanna',
+        description: 'Engineering Lead | Systems & Infrastructure',
+        image: '/images/Pramath.png',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Sudiksha Das',
+        description: 'Management Lead | Operations & Growth',
+        image: '/images/Sudiksha.png',
+        icon: 'tabler:chart-line',
+      }
+    ]}
+  />
+
+  <!-- Team Culture & Vision -->
+  <Testimonials
+    title="Our Culture"
+    subtitle="What drives us every day"
+    testimonials={[
+      {
+        title: 'Innovation First',
+        testimonial: 'We believe that pushing boundaries is not optional—it\'s essential. Every decision we make prioritizes breakthrough innovation.',
+        name: 'Our Philosophy',
+        job: 'Core Value',
+        // image: 'tabler:star',
+      },
+      {
+        title: 'Collaborative Excellence',
+        testimonial: 'Our strength lies in our diversity. We bring together different perspectives to solve the world\'s toughest computational challenges.',
+        name: 'Our Team',
+        job: 'Team Dynamic',
+        // image: 'tabler:star',
+      },
+      {
+        title: 'Future-Ready',
+        testimonial: 'We\'re not just building for today. Every product, every decision is made with foresight toward the exascale future.',
+        name: 'Our Vision',
+        job: 'Long-term Goal',
+        // image: 'tabler:star',
+      }
+    ]}
+  />
+
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Join Our Mission?"
+    subtitle="We're always looking for talented individuals who share our passion for innovation and technical excellence."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in Touch',
+        href: '/contact',
+      }
+    ]}
+  />
+</Layout>

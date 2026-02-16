@@ -20,10 +20,16 @@ const metadata = {
     image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development board with LightningSim UI fading in on the right' }}
     slides={[
       {
+        title: 'Built on Research',
+        description: 'Tools developed by engineers and researchers from Sharc Lab at Georgia Tech. Featured in top conferences such as MICRO\'26, FCCM\'24, and FCCM\'23',
+        buttonText: 'View Papers',
+        buttonHref: '#papers'
+      },
+      {
         title: 'Ultra-fast Cycle-accurate Simulation',
         description: 'LightningSim accelerates your C/RTL co-simulation by 100x with 99.9% accuracy. Don\'t waste time on slow simulations.',
         buttonText: 'Learn More',
-        buttonHref: '#features'
+        buttonHref: '/performance'
       },
       {
         title: 'Scalable Optimization',
@@ -36,12 +42,6 @@ const metadata = {
         description: 'Advanced synthesis optimization and hardware acceleration tools for next-generation chip designs.',
         buttonText: 'Discover',
         buttonHref: '#features'
-      },
-      {
-        title: 'Built on Research',
-        description: 'Tools developed by the Sharc Lab at Georgia Tech. Proven by peer-reviewed research at top conferences.',
-        buttonText: 'View Papers',
-        buttonHref: '#papers'
       }
     ]}
   />
@@ -103,7 +103,7 @@ const metadata = {
         icon: 'tabler:plug',
       },
     ]}
-    image={`<iframe width="100%" height="400" src="https://www.youtube.com/embed/JCQniXBqYjI" title="LightningSim Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="rounded-md shadow-lg"></iframe>`}
+    image={`<iframe width="100%" height="200" src="https://www.youtube.com/embed/JCQniXBqYjI" title="LightningSim Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="rounded-md shadow-lg"></iframe>`}
     isReversed={true}
   />
 

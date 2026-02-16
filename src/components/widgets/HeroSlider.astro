@@ -104,18 +104,14 @@ const {
   let currentSlide = 0;
   let slideInterval;
   const SLIDE_DURATION = 5000; // ms
-  let isReversing = false;
 
-  function showSlide(n, reverse = false) {
+  function showSlide(n) {
     const slides = document.querySelectorAll('.slide-item');
     if (n >= slides.length) {
-      isReversing = true;
       currentSlide = 0;
     } else if (n < 0) {
-      isReversing = false;
       currentSlide = slides.length - 1;
     } else {
-      isReversing = reverse;
       currentSlide = n;
     }
 
@@ -131,7 +127,7 @@ const {
   }
 
   function nextSlide() {
-    showSlide(currentSlide + 1, false);
+    showSlide(currentSlide + 1);
   }
 
   function updateProgressBar() {
@@ -139,22 +135,23 @@ const {
     slides.forEach((_, idx) => {
       const bar = document.getElementById(`slider-progress-bar-${idx}`);
       if (!bar) return;
+      
+      // Reset transition first for consistency
+      bar.style.transition = 'width 300ms linear';
+      
       if (idx < currentSlide) {
+        // Previous slides are fully filled
         bar.style.width = '100%';
-        bar.style.transition = 'width 300ms linear';
       } else if (idx === currentSlide) {
-        bar.style.transition = isReversing ? 'width 400ms linear' : `width ${SLIDE_DURATION}ms linear`;
-        bar.style.width = isReversing ? '0%' : '100%';
-        if (isReversing) {
-          setTimeout(() => { bar.style.width = '0%'; }, 10);
-        } else {
-          bar.style.width = '0%';
-          void bar.offsetWidth;
-          bar.style.width = '100%';
-        }
-      } else {
+        // Current slide animates from 0% to 100%
         bar.style.width = '0%';
-        bar.style.transition = 'width 300ms linear';
+        bar.style.transition = `width ${SLIDE_DURATION}ms linear`;
+        // Force reflow to ensure animation plays
+        void bar.offsetWidth;
+        bar.style.width = '100%';
+      } else {
+        // Future slides are empty
+        bar.style.width = '0%';
       }
     });
   }
@@ -162,11 +159,7 @@ const {
   function startAutoSlide() {
     stopAutoSlide();
     slideInterval = setInterval(() => {
-      if (currentSlide === document.querySelectorAll('.slide-item').length - 1) {
-        showSlide(0, true); // reverse animation
-      } else {
-        showSlide(currentSlide + 1, false);
-      }
+      showSlide(currentSlide + 1);
     }, SLIDE_DURATION);
   }
 
