@@ -8,6 +8,11 @@ interface Slide {
   description: string;
   buttonText?: string;
   buttonHref?: string;
+  icon?: string;
+  image?: {
+    src: string | ImageMetadata;
+    alt: string;
+  };
 }
 
 export interface Props {
@@ -26,9 +31,9 @@ const {
 } = Astro.props;
 ---
 
-<div class="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden pt-12 pb-12 md:pt-16 md:pb-16">
+<div class="relative w-full overflow-hidden py-12 md:py-16">
   <!-- Background Image -->
-  <div class="absolute inset-0 top-0">
+  <div class="absolute inset-0">
     <Image
       src={image.src}
       alt={image.alt}
@@ -40,12 +45,12 @@ const {
   <div class="absolute inset-0 bg-black/40"></div>
 
   <!-- Content Container -->
-  <div class="relative h-full flex flex-col justify-center items-center px-4 z-10 min-h-[500px] md:min-h-[600px]">
+  <div class="relative flex flex-col justify-center items-center px-4 z-10">
     <!-- Top Title -->
     {title && (
       <h1 class="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12">
-        <span class="text-accent dark:text-white block"><span class="flicker-text">Faster Simulation.</span></span>
-        <span class="text-accent dark:text-white block"><span class="flicker-text">Scalable Optimization.</span></span>
+        <span class="text-accent dark:text-white block"><span class="lightning-text">Faster Simulation.</span></span>
+        <span class="text-accent dark:text-white block"><span class="lightning-text" style="animation-delay: 0.15s;">Scalable Optimization.</span></span>
       </h1>
     )}
 
@@ -53,46 +58,72 @@ const {
     <div class="relative w-full max-w-4xl mx-auto flex items-center justify-center">
       <!-- No arrows: replaced by loading bar below -->
 
-      <div class="bg-page dark:bg-page rounded-xl p-8 md:p-12 border border-white/10 transition-colors duration-300 shadow-2xl w-full">
+      <div class="bg-page dark:bg-page rounded-2xl border border-gray-200 dark:border-white/10 transition-colors duration-300 shadow-2xl w-full overflow-hidden">
         <!-- Slides Container -->
-        <div class="slider-container relative min-h-64 md:min-h-52">
+        <div class="slider-container relative grid">
           {slides.map((slide, index) => (
             <div
-              class="slide-item absolute inset-0 transition-all duration-700 ease-in-out flex flex-col items-center justify-center"
+              class="slide-item col-start-1 row-start-1 transition-all duration-700 ease-in-out"
               data-slide={index}
               style={index === 0 ? 'opacity: 1; visibility: visible;' : 'opacity: 0; visibility: hidden;'}
             >
-              <h2 class="text-default dark:text-default text-2xl md:text-3xl font-bold mb-4 text-center">
-                {slide.title}
-              </h2>
-              <p class="text-muted dark:text-muted text-lg mb-6 leading-relaxed text-center">
-                {slide.description}
-              </p>
-              {slide.buttonText && slide.buttonHref && (
-                <a
-                  href={slide.buttonHref}
-                  class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-8 rounded transition-colors shadow-md"
-                >
-                  {slide.buttonText}
-                </a>
-              )}
+              <div class="flex flex-col md:flex-row items-center h-full">
+                <!-- Left: Visual (icon or image) -->
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-2/5 py-8 px-6 md:py-12 md:px-8 bg-gradient-to-br from-primary/10 via-blue-500/5 to-transparent dark:from-primary/20 dark:via-blue-500/10 dark:to-transparent">
+                  {slide.image ? (
+                    <Image
+                      src={slide.image.src}
+                      alt={slide.image.alt}
+                      class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-xl"
+                    />
+                  ) : slide.icon ? (
+                    <div class="w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center ring-1 ring-primary/20">
+                      <Icon name={slide.icon} class="w-14 h-14 md:w-20 md:h-20 text-primary" />
+                    </div>
+                  ) : (
+                    <div class="w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                      <Icon name="tabler:photo" class="w-14 h-14 md:w-20 md:h-20 text-gray-300 dark:text-gray-600" />
+                    </div>
+                  )}
+                </div>
+
+                <!-- Right: Text + Button -->
+                <div class="flex-1 flex flex-col justify-center px-6 py-6 md:px-10 md:py-10">
+                  <h2 class="text-default dark:text-default text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:text-left text-center leading-tight">
+                    {slide.title}
+                  </h2>
+                  <p class="text-muted dark:text-muted text-base md:text-lg mb-6 leading-relaxed md:text-left text-center">
+                    {slide.description}
+                  </p>
+                  {slide.buttonText && slide.buttonHref && (
+                    <div class="md:text-left text-center">
+                      <a
+                        href={slide.buttonHref}
+                        class="btn-primary inline-flex items-center gap-2 text-sm md:text-base"
+                      >
+                        {slide.buttonText}
+                        <Icon name="tabler:arrow-right" class="w-4 h-4" />
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- No arrows: replaced by loading bar below -->
-
-      <!-- Segmented Loading Bar Indicator -->
-      <div class="absolute left-1/2 -translate-x-1/2 -bottom-10 w-2/3 md:w-1/2 h-2 flex gap-1 z-20">
+      <!-- Segmented Progress Indicator -->
+      <div class="absolute left-1/2 -translate-x-1/2 -bottom-8 flex items-center gap-2 z-20">
         {slides.map((_, index) => (
           <button
-            class="slider-progress-segment flex-1 h-full rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden relative p-0 border-none outline-none transition-all duration-300"
-            style={`cursor:pointer; position:relative;`}
+            class="slider-progress-segment group relative h-1.5 rounded-full overflow-hidden p-0 border-none outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-all duration-500"
+            style={`cursor:pointer; width: 3rem;`}
             aria-label={`Go to slide ${index + 1}`}
             data-segment={index}
           >
-            <div id={`slider-progress-bar-${index}`} class="absolute left-0 top-0 h-full bg-blue-600 transition-all duration-500" style="width:0%"></div>
+            <div class="absolute inset-0 rounded-full bg-white/25 dark:bg-white/15"></div>
+            <div id={`slider-progress-bar-${index}`} class="absolute left-0 top-0 h-full rounded-full bg-white dark:bg-white" style="width:0%"></div>
           </button>
         ))}
       </div>
@@ -101,98 +132,220 @@ const {
 </div>
 
 <script>
-  let currentSlide = 0;
-  let slideInterval;
-  const SLIDE_DURATION = 5000; // ms
+  const SLIDE_DURATION = 5000; // ms per slide
 
-  function showSlide(n) {
-    const slides = document.querySelectorAll('.slide-item');
-    if (n >= slides.length) {
-      currentSlide = 0;
-    } else if (n < 0) {
-      currentSlide = slides.length - 1;
-    } else {
-      currentSlide = n;
-    }
+  let currentSlide = 0;
+  let startTime = 0;
+  let rafId: number | null = null;
+  let paused = false;
+  let visibilityHandler: (() => void) | null = null;
+
+  function getSlides() {
+    return document.querySelectorAll<HTMLElement>('.slide-item');
+  }
+
+  function getBar(idx: number) {
+    return document.getElementById(`slider-progress-bar-${idx}`);
+  }
+
+  /** Switch visible slide without touching progress bars */
+  function showSlide(n: number) {
+    const slides = getSlides();
+    const total = slides.length;
+    if (total === 0) return;
+
+    currentSlide = ((n % total) + total) % total;
 
     slides.forEach((slide, idx) => {
-      (slide).style.opacity = '0';
-      (slide).style.visibility = 'hidden';
-      if (idx === currentSlide) {
-        (slide).style.opacity = '1';
-        (slide).style.visibility = 'visible';
-      }
+      slide.style.opacity = idx === currentSlide ? '1' : '0';
+      slide.style.visibility = idx === currentSlide ? 'visible' : 'hidden';
     });
-    updateProgressBar();
   }
 
-  function nextSlide() {
-    showSlide(currentSlide + 1);
-  }
+  /** Called every frame — drives both the bar fill and the auto‑advance */
+  function tick(now: number) {
+    if (paused) return;
 
-  function updateProgressBar() {
-    const slides = document.querySelectorAll('.slide-item');
-    slides.forEach((_, idx) => {
-      const bar = document.getElementById(`slider-progress-bar-${idx}`);
-      if (!bar) return;
-      
-      // Reset transition first for consistency
-      bar.style.transition = 'width 300ms linear';
-      
-      if (idx < currentSlide) {
-        // Previous slides are fully filled
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / SLIDE_DURATION, 1);
+    const total = getSlides().length;
+
+    // Update all bars and segment widths
+    const segments = document.querySelectorAll<HTMLElement>('.slider-progress-segment');
+    for (let i = 0; i < total; i++) {
+      const bar = getBar(i);
+      const seg = segments[i];
+      if (!bar) continue;
+
+      if (i < currentSlide) {
         bar.style.width = '100%';
-      } else if (idx === currentSlide) {
-        // Current slide animates from 0% to 100%
-        bar.style.width = '0%';
-        bar.style.transition = `width ${SLIDE_DURATION}ms linear`;
-        // Force reflow to ensure animation plays
-        void bar.offsetWidth;
-        bar.style.width = '100%';
+        if (seg) seg.style.width = '3rem';
+      } else if (i === currentSlide) {
+        bar.style.width = `${(progress * 100).toFixed(1)}%`;
+        if (seg) seg.style.width = '4.5rem';
       } else {
-        // Future slides are empty
+        bar.style.width = '0%';
+        if (seg) seg.style.width = '3rem';
+      }
+    }
+
+    if (progress >= 1) {
+      // Advance to the next slide and restart timer
+      goToSlide(currentSlide + 1);
+      return; // goToSlide already schedules the next frame
+    }
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  /** Jump to a specific slide and restart the progress timer */
+  function goToSlide(n: number) {
+    if (rafId !== null) cancelAnimationFrame(rafId);
+
+    showSlide(n);
+    startTime = performance.now();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  /** Pause on tab hidden, resume on tab visible */
+  function handleVisibility() {
+    if (document.hidden) {
+      paused = true;
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    } else {
+      paused = false;
+      // Preserve the remaining progress so the bar doesn't jump
+      startTime = performance.now() - (getElapsed());
+      rafId = requestAnimationFrame(tick);
+    }
+  }
+
+  function getElapsed(): number {
+    const bar = getBar(currentSlide);
+    if (!bar) return 0;
+    const pct = parseFloat(bar.style.width) || 0;
+    return (pct / 100) * SLIDE_DURATION;
+  }
+
+  /** Clean up any running state from a previous page load */
+  function cleanup() {
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    if (visibilityHandler) {
+      document.removeEventListener('visibilitychange', visibilityHandler);
+      visibilityHandler = null;
+    }
+    paused = false;
+    currentSlide = 0;
+  }
+
+  function initSlider() {
+    cleanup();
+
+    const slides = getSlides();
+    if (slides.length === 0) return;
+
+    // Remove CSS transitions — JS drives width directly each frame
+    slides.forEach((_, idx) => {
+      const bar = getBar(idx);
+      if (bar) {
+        bar.style.transition = 'none';
         bar.style.width = '0%';
       }
     });
-  }
 
-  function startAutoSlide() {
-    stopAutoSlide();
-    slideInterval = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, SLIDE_DURATION);
-  }
+    goToSlide(0);
 
-  function stopAutoSlide() {
-    if (slideInterval) clearInterval(slideInterval);
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    showSlide(currentSlide);
-    startAutoSlide();
-    // Add click listeners to segments
+    // Segment click listeners
     document.querySelectorAll('.slider-progress-segment').forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        showSlide(idx);
-        startAutoSlide();
-      });
+      el.addEventListener('click', () => goToSlide(idx));
     });
-  });
+
+    visibilityHandler = handleVisibility;
+    document.addEventListener('visibilitychange', visibilityHandler);
+  }
+
+  // Fire on initial load AND on Astro client-side navigations
+  document.addEventListener('astro:page-load', initSlider);
 </script>
 
 <style>
-  @keyframes flicker {
-    0% { color: inherit; text-shadow: none; }
-    2% { color: #fbbf24; text-shadow: 0 0 10px rgba(251, 191, 36, 0.8); }
-    4% { color: inherit; text-shadow: none; }
-    5% { color: #fbbf24; text-shadow: 0 0 15px rgba(251, 191, 36, 0.9); }
-    7% { color: inherit; text-shadow: none; }
-    11% { color: #fbbf24; text-shadow: 0 0 12px rgba(251, 191, 36, 0.85); }
-    13% { color: inherit; text-shadow: none; }
+  /* ── Lightning strike effect ────────────────────────────── */
+
+  .lightning-text {
+    position: relative;
+    display: inline-block;
+    animation: lightning-strike 4s ease-in-out infinite;
+  }
+
+  /*
+    The bolt sequence:
+      1. Idle (inherit color, no glow)
+      2. Quick bright flash (white + intense blue glow)  – the "strike"
+      3. Dark snap-back                                   – afterimage
+      4. Shorter second flash                             – re-strike
+      5. Lingering electric glow that slowly fades out
+  */
+  @keyframes lightning-strike {
+    0%   { color: inherit; text-shadow: none; opacity: 1; }
+
+    /* ── First strike ── */
+    18%  { color: inherit; text-shadow: none; }
+    19%  {
+      color: #ffffff;
+      text-shadow:
+        0 0  4px rgba(1, 97, 239, 0.9),
+        0 0 11px rgba(1, 97, 239, 0.7),
+        0 0 30px rgba(1, 97, 239, 0.5),
+        0 0 60px rgba(1, 97, 239, 0.3);
+    }
+    20.5% { color: inherit; text-shadow: none; }
+
+    /* ── Brief dark gap ── */
+    21%  { color: inherit; text-shadow: none; opacity: 0.85; }
+
+    /* ── Second strike (slightly softer) ── */
+    22%  {
+      color: #e0edff;
+      text-shadow:
+        0 0  6px rgba(1, 97, 239, 0.95),
+        0 0 20px rgba(1, 97, 239, 0.6),
+        0 0 45px rgba(1, 97, 239, 0.35),
+        0 0 80px rgba(56, 152, 255, 0.2);
+      opacity: 1;
+    }
+
+    /* ── Lingering glow fade ── */
+    28%  {
+      color: inherit;
+      text-shadow:
+        0 0  3px rgba(1, 97, 239, 0.4),
+        0 0 10px rgba(1, 97, 239, 0.2);
+    }
+    36%  { color: inherit; text-shadow: none; }
+
     100% { color: inherit; text-shadow: none; }
   }
 
-  .flicker-text {
-    animation: flicker 5s ease-in-out infinite;
+  /* Subtle pulsing glow between strikes so text feels "charged" */
+  .lightning-text::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    pointer-events: none;
+    animation: lightning-ambient 4s ease-in-out infinite;
+    animation-delay: inherit;
+  }
+
+  @keyframes lightning-ambient {
+    0%, 17%, 37%, 100% {
+      text-shadow: none;
+    }
+    50% {
+      text-shadow: 0 0 6px rgba(1, 97, 239, 0.12);
+    }
   }
 </style>

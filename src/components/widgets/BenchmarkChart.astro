@@ -2,30 +2,16 @@
 // Benchmark chart component showing speedup comparisons
 ---
 
-<section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Runtime Performance Comparison</h2>
-      <p class="text-slate-400 max-w-2xl mx-auto">Actual runtimes across representative benchmarks showing dramatic acceleration compared to traditional C/RTL co-simulation</p>
+<section class="py-16 md:py-20 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <p class="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-blue-200">Visualization</p>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 dark:text-white">Runtime Performance Comparison</h2>
+      <p class="text-muted dark:text-slate-400 mt-3 max-w-2xl mx-auto">Actual runtimes across representative benchmarks showing dramatic acceleration vs traditional C/RTL co-simulation.</p>
     </div>
 
-    <div class="bg-slate-800 border border-slate-700 rounded-xl p-8 shadow-lg">
+    <div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 md:p-8 shadow-sm">
       <canvas id="speedupChart"></canvas>
-    </div>
-
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="flex items-center gap-3 p-4 bg-slate-800 rounded-lg">
-        <div class="w-4 h-4 bg-gray-500 rounded"></div>
-        <span class="text-slate-300">C/RTL Cosimulation</span>
-      </div>
-      <div class="flex items-center gap-3 p-4 bg-slate-800 rounded-lg">
-        <div class="w-4 h-4 bg-green-500 rounded"></div>
-        <span class="text-slate-300">LightningSim</span>
-      </div>
-      <div class="flex items-center gap-3 p-4 bg-slate-800 rounded-lg">
-        <div class="w-4 h-4 bg-amber-500 rounded"></div>
-        <span class="text-slate-300">OmniSim</span>
-      </div>
     </div>
   </div>
 </section>
@@ -53,6 +39,14 @@
     if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
+    const isDark = document.documentElement.classList.contains('dark');
+
+    const gridColor = isDark ? 'rgba(71, 85, 105, 0.25)' : 'rgba(0, 0, 0, 0.06)';
+    const tickColor = isDark ? '#cbd5e1' : '#64748b';
+    const tooltipBg = isDark ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+    const tooltipBorder = isDark ? '#475569' : '#e2e8f0';
+    const tooltipTitle = isDark ? '#f1f5f9' : '#1e293b';
+    const tooltipBody = isDark ? '#e2e8f0' : '#475569';
 
     new window.Chart(ctx, {
       type: 'bar',
@@ -71,20 +65,20 @@
           {
             label: 'LightningSim',
             data: lsData,
-            backgroundColor: 'rgba(34, 197, 94, 0.8)',
-            borderColor: 'rgb(34, 197, 94)',
-            borderWidth: 1,
-            borderRadius: 6,
-            hoverBackgroundColor: 'rgba(34, 197, 94, 1)',
-          },
-          {
-            label: 'OmniSim',
-            data: osData,
             backgroundColor: 'rgba(245, 158, 11, 0.8)',
             borderColor: 'rgb(245, 158, 11)',
             borderWidth: 1,
             borderRadius: 6,
             hoverBackgroundColor: 'rgba(245, 158, 11, 1)',
+          },
+          {
+            label: 'OmniSim',
+            data: osData,
+            backgroundColor: 'rgba(34, 197, 94, 0.8)',
+            borderColor: 'rgb(34, 197, 94)',
+            borderWidth: 1,
+            borderRadius: 6,
+            hoverBackgroundColor: 'rgba(34, 197, 94, 1)',
           },
         ],
       },
@@ -97,7 +91,7 @@
             display: true,
             position: 'top',
             labels: {
-              color: '#cbd5e1',
+              color: tickColor,
               font: {
                 size: 13,
                 weight: '500',
@@ -109,13 +103,13 @@
           },
           tooltip: {
             enabled: true,
-            backgroundColor: 'rgba(15, 23, 42, 0.9)',
-            borderColor: '#475569',
+            backgroundColor: tooltipBg,
+            borderColor: tooltipBorder,
             borderWidth: 1,
-            titleColor: '#f1f5f9',
-            bodyColor: '#e2e8f0',
+            titleColor: tooltipTitle,
+            bodyColor: tooltipBody,
             padding: 12,
-            cornerRadius: 6,
+            cornerRadius: 8,
             callbacks: {
               label: function(context) {
                 return context.dataset.label + ': ' + context.parsed.y.toFixed(2) + 's';
@@ -126,11 +120,11 @@
         scales: {
           x: {
             grid: {
-              color: 'rgba(71, 85, 105, 0.2)',
+              color: gridColor,
               drawBorder: false,
             },
             ticks: {
-              color: '#cbd5e1',
+              color: tickColor,
               font: {
                 size: 12,
               },
@@ -139,11 +133,11 @@
           y: {
             type: 'logarithmic',
             grid: {
-              color: 'rgba(71, 85, 105, 0.2)',
+              color: gridColor,
               drawBorder: false,
             },
             ticks: {
-              color: '#cbd5e1',
+              color: tickColor,
               font: {
                 size: 12,
               },
@@ -154,7 +148,7 @@
             title: {
               display: true,
               text: 'Runtime (seconds, log scale)',
-              color: '#cbd5e1',
+              color: tickColor,
               font: {
                 size: 12,
                 weight: 'bold',

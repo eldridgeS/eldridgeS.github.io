@@ -1,214 +1,159 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import BenchmarkChart from '~/components/widgets/BenchmarkChart.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Performance — LightningX',
+};
 ---
 
-<Layout>
-  <!-- Hero Section -->
-  <section class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="inline-block px-4 py-2 bg-indigo-500 bg-opacity-20 text-indigo-300 rounded-full text-sm font-semibold mb-4">Performance Insights</span>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Proven Performance at <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Scale</span>
-        </h1>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-          See the real numbers. LightningSim and OmniSim deliver breakthrough acceleration across diverse computing workloads. Up to <span class="text-indigo-300 font-semibold">352x faster</span> than traditional simulation methods.
-        </p>
-      </div>
+<Layout metadata={metadata}>
 
-      <!-- Key Metrics Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <div class="group bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-xl border border-slate-700 hover:border-indigo-500 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/20">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Max Speedup</h3>
-            <svg class="w-6 h-6 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
-            </svg>
+  <!-- Hero -->
+  <Hero
+    tagline="Performance"
+    title="Proven Results at Scale"
+    subtitle="Real benchmark data from Vitis v2021.1. LightningSim and OmniSim deliver up to 352× acceleration over traditional C/RTL co-simulation — with 99.9% cycle-count accuracy."
+  />
+
+  <!-- Key Metrics -->
+  <section class="-mt-8 pb-12 md:pb-16 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-sm text-center">
+          <div class="flex items-center justify-center mb-3">
+            <Icon name="tabler:chart-bar" class="w-7 h-7 text-primary" />
           </div>
-          <div class="flex items-end gap-2 mb-2">
-            <span class="text-5xl font-bold text-white">352</span>
-            <span class="text-2xl text-indigo-400 mb-1">×</span>
+          <div class="flex items-baseline justify-center gap-1">
+            <span class="text-5xl font-bold text-default dark:text-white">352</span>
+            <span class="text-2xl font-semibold text-primary">×</span>
           </div>
-          <p class="text-slate-500 text-sm">OmniSim vs Co-simulation</p>
+          <p class="text-sm text-muted dark:text-slate-400 mt-2">Peak speedup · OmniSim vs co-sim</p>
         </div>
 
-        <div class="group bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-xl border border-slate-700 hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Accuracy</h3>
-            <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-sm text-center">
+          <div class="flex items-center justify-center mb-3">
+            <Icon name="tabler:circle-check" class="w-7 h-7 text-primary" />
           </div>
-          <div class="flex items-end gap-2 mb-2">
-            <span class="text-5xl font-bold text-white">99.9</span>
-            <span class="text-2xl text-purple-400 mb-1">%</span>
+          <div class="flex items-baseline justify-center gap-1">
+            <span class="text-5xl font-bold text-default dark:text-white">99.9</span>
+            <span class="text-2xl font-semibold text-primary">%</span>
           </div>
-          <p class="text-slate-500 text-sm">Cycle Count Accuracy</p>
+          <p class="text-sm text-muted dark:text-slate-400 mt-2">Cycle-count accuracy</p>
         </div>
 
-        <div class="group bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-xl border border-slate-700 hover:border-pink-500 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/20">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Benchmarks</h3>
-            <svg class="w-6 h-6 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-            </svg>
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-sm text-center">
+          <div class="flex items-center justify-center mb-3">
+            <Icon name="tabler:test-pipe" class="w-7 h-7 text-primary" />
           </div>
-          <div class="flex items-end gap-2 mb-2">
-            <span class="text-5xl font-bold text-white">30+</span>
+          <div class="flex items-baseline justify-center gap-1">
+            <span class="text-5xl font-bold text-default dark:text-white">30+</span>
           </div>
-          <p class="text-slate-500 text-sm">Diverse Workloads Tested</p>
+          <p class="text-sm text-muted dark:text-slate-400 mt-2">Benchmarks tested</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benchmark Chart Visualization -->
+  <!-- Benchmark Chart -->
   <BenchmarkChart />
 
   <!-- Performance by Category -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-950">
-    <div class="max-w-6xl mx-auto">
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/50 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Performance Across Categories</h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">Consistent speedups across different benchmark categories</p>
+        <p class="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-blue-200">Benchmark Breakdown</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 dark:text-white">Performance Across Workload Categories</h2>
+        <p class="text-muted dark:text-slate-400 mt-3 max-w-2xl mx-auto">
+          Consistent speedups across DSP kernels, loop structures, and complex AI/ML workloads.
+        </p>
       </div>
 
-      <!-- DSP & Math Operations -->
-      <div class="mb-12">
-        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-          <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+      <!-- DSP & Math -->
+      <div class="mb-14">
+        <h3 class="text-lg font-bold text-default dark:text-white mb-5 flex items-center gap-2">
+          <span class="w-2 h-2 bg-primary rounded-full"></span>
           DSP & Mathematical Operations
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-indigo-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Fixed-point Square Root</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-indigo-400">7.47×</div>
-              <div class="text-slate-500 text-sm mb-1">vs Cosim</div>
+          {[
+            { name: 'Fixed-point Square Root', speedup: '7.47', pct: 36 },
+            { name: 'FIR Filter', speedup: '10.37', pct: 50 },
+            { name: 'Window Convolution', speedup: '8.98', pct: 43 },
+            { name: 'Floating-point Conv', speedup: '20.24', pct: 72 },
+            { name: 'Arbitrary Precision ALU', speedup: '11.91', pct: 56 },
+          ].map((b) => (
+            <div class="bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 rounded-xl">
+              <h4 class="text-default dark:text-white font-semibold mb-3 text-sm">{b.name}</h4>
+              <div class="flex items-baseline gap-1 mb-3">
+                <span class="text-2xl font-bold text-primary">{b.speedup}</span>
+                <span class="text-sm text-primary font-medium">× vs Cosim</span>
+              </div>
+              <div class="w-full bg-gray-100 dark:bg-slate-700 rounded-full h-1.5">
+                <div class="bg-primary h-1.5 rounded-full" style={`width: ${b.pct}%`}></div>
+              </div>
             </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-indigo-500 to-indigo-400 h-2 rounded" style="width: 78%;"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-indigo-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">FIR Filter</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-indigo-400">10.37×</div>
-              <div class="text-slate-500 text-sm mb-1">vs Cosim</div>
-            </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-indigo-500 to-indigo-400 h-2 rounded" style="width: 100%;"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-indigo-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Window Convolution</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-indigo-400">8.98×</div>
-              <div class="text-slate-500 text-sm mb-1">vs Cosim</div>
-            </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-indigo-500 to-indigo-400 h-2 rounded" style="width: 86%;"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-indigo-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Floating-point Conv</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-indigo-400">20.24×</div>
-              <div class="text-slate-500 text-sm mb-1">vs Cosim</div>
-            </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-indigo-500 to-indigo-400 h-2 rounded" style="width: 100%;"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-indigo-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Arbitrary Precision ALU</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-indigo-400">11.91×</div>
-              <div class="text-slate-500 text-sm mb-1">vs Cosim</div>
-            </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-indigo-500 to-indigo-400 h-2 rounded" style="width: 92%;"></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
       <!-- Loop Operations -->
-      <div class="mb-12">
-        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-          <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+      <div class="mb-14">
+        <h3 class="text-lg font-bold text-default dark:text-white mb-5 flex items-center gap-2">
+          <span class="w-2 h-2 bg-secondary rounded-full"></span>
           Loop & Control Flow Operations
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-purple-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Parallel Loops</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-purple-400">12.41×</div>
-              <div class="text-slate-500 text-sm mb-1">OmniSim</div>
+          {[
+            { name: 'Parallel Loops', speedup: '12.41', pct: 58 },
+            { name: 'Imperfect Loops', speedup: '12.11', pct: 57 },
+            { name: 'Pipelined Nested Loops', speedup: '11.38', pct: 54 },
+          ].map((b) => (
+            <div class="bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-5 rounded-xl">
+              <h4 class="text-default dark:text-white font-semibold mb-3 text-sm">{b.name}</h4>
+              <div class="flex items-baseline gap-1 mb-3">
+                <span class="text-2xl font-bold text-secondary dark:text-blue-400">{b.speedup}</span>
+                <span class="text-sm text-secondary dark:text-blue-400 font-medium">× OmniSim</span>
+              </div>
+              <div class="w-full bg-gray-100 dark:bg-slate-700 rounded-full h-1.5">
+                <div class="bg-secondary dark:bg-blue-500 h-1.5 rounded-full" style={`width: ${b.pct}%`}></div>
+              </div>
             </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-purple-500 to-purple-400 h-2 rounded" style="width: 96%;"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-purple-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Imperfect Loops</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-purple-400">12.11×</div>
-              <div class="text-slate-500 text-sm mb-1">OmniSim</div>
-            </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-purple-500 to-purple-400 h-2 rounded" style="width: 94%;"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-purple-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">Pipelined Nested Loops</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-3xl font-bold text-purple-400">11.38×</div>
-              <div class="text-slate-500 text-sm mb-1">OmniSim</div>
-            </div>
-            <div class="w-full bg-slate-800 rounded h-2">
-              <div class="bg-gradient-to-r from-purple-500 to-purple-400 h-2 rounded" style="width: 88%;"></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      <!-- AI/ML & Complex Workloads -->
-      <div class="mb-12">
-        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-          <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
+      <!-- AI/ML Workloads -->
+      <div>
+        <h3 class="text-lg font-bold text-default dark:text-white mb-5 flex items-center gap-2">
+          <span class="w-2 h-2 bg-pink-500 rounded-full"></span>
           AI/ML & Complex Workloads
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-800 p-6 rounded-lg hover:border-pink-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">FlowGNN - GIN</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-4xl font-bold text-pink-400">352.53×</div>
-              <div class="text-slate-400 text-sm mb-1">OmniSim vs Cosim</div>
+          <div class="bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-6 rounded-xl">
+            <h4 class="text-default dark:text-white font-semibold mb-1 text-sm">FlowGNN — GIN</h4>
+            <p class="text-xs text-muted dark:text-slate-500 mb-3">Graph neural network · 260K cycles</p>
+            <div class="flex items-baseline gap-1 mb-3">
+              <span class="text-3xl font-bold text-pink-600 dark:text-pink-400">352.53</span>
+              <span class="text-sm text-pink-600 dark:text-pink-400 font-medium">× OmniSim vs Cosim</span>
             </div>
-            <p class="text-slate-500 text-sm">Graph neural network with 260K cycles</p>
-            <div class="w-full bg-slate-700 rounded h-2 mt-4">
-              <div class="bg-gradient-to-r from-pink-500 to-pink-400 h-2 rounded" style="width: 100%;"></div>
+            <div class="w-full bg-gray-100 dark:bg-slate-700 rounded-full h-1.5">
+              <div class="bg-pink-500 h-1.5 rounded-full" style="width: 100%"></div>
             </div>
           </div>
 
-          <div class="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-800 p-6 rounded-lg hover:border-pink-500 transition-colors">
-            <h4 class="text-white font-semibold mb-3">FlowGNN - DGN</h4>
-            <div class="flex items-end gap-3 mb-4">
-              <div class="text-4xl font-bold text-pink-400">85.07×</div>
-              <div class="text-slate-400 text-sm mb-1">OmniSim vs Cosim</div>
+          <div class="bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 p-6 rounded-xl">
+            <h4 class="text-default dark:text-white font-semibold mb-1 text-sm">FlowGNN — DGN</h4>
+            <p class="text-xs text-muted dark:text-slate-500 mb-3">Directed graph neural network</p>
+            <div class="flex items-baseline gap-1 mb-3">
+              <span class="text-3xl font-bold text-pink-600 dark:text-pink-400">85.07</span>
+              <span class="text-sm text-pink-600 dark:text-pink-400 font-medium">× OmniSim vs Cosim</span>
             </div>
-            <p class="text-slate-500 text-sm">Directed graph neural network</p>
-            <div class="w-full bg-slate-700 rounded h-2 mt-4">
-              <div class="bg-gradient-to-r from-pink-500 to-pink-400 h-2 rounded" style="width: 78%;"></div>
+            <div class="w-full bg-gray-100 dark:bg-slate-700 rounded-full h-1.5">
+              <div class="bg-pink-500 h-1.5 rounded-full" style="width: 68%"></div>
             </div>
           </div>
         </div>
@@ -216,169 +161,123 @@ import BenchmarkChart from '~/components/widgets/BenchmarkChart.astro';
     </div>
   </section>
 
-  <!-- Detailed Benchmark Table -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">Complete Benchmark Results</h2>
-      <p class="text-slate-400 text-center mb-8">Full dataset from Vitis v2021.1 showing cycle counts and runtime performance</p>
+  <!-- Key Insights -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/50 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-blue-200">Analysis</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 dark:text-white">Key Takeaways</h2>
+      </div>
 
-      <div class="overflow-x-auto rounded-lg border border-slate-800">
+      <div class="space-y-4">
+        <div class="flex gap-4 p-6 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-sm">
+          <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20">
+            <Icon name="tabler:circle-check" class="w-5 h-5 text-primary" />
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-default dark:text-white mb-1">99.9% Accuracy Across All Benchmarks</h3>
+            <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">Cycle-count estimates from LightningSim and OmniSim match C/RTL co-simulation results to within 0.1% on every tested workload.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-sm">
+          <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20">
+            <Icon name="tabler:bolt" class="w-5 h-5 text-primary" />
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-default dark:text-white mb-1">Consistent 10–55× on Standard Kernels</h3>
+            <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">DSP filters, convolutions, and FFT operations see reliable double-digit speedups — turning minute-long simulations into seconds.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-sm">
+          <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-pink-500/10 dark:bg-pink-500/20">
+            <Icon name="tabler:brain" class="w-5 h-5 text-pink-600 dark:text-pink-400" />
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-default dark:text-white mb-1">352× on Complex AI/ML Workloads</h3>
+            <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">Graph neural network models (FlowGNN) show the largest gains — OmniSim reduces 70-minute co-simulations to 12 seconds.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-sm">
+          <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20">
+            <Icon name="tabler:arrows-maximize" class="w-5 h-5 text-primary" />
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-default dark:text-white mb-1">Up to 577× with Design Space Exploration</h3>
+            <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">Combined with incremental DSE, total workflow acceleration reaches 577× — enabling rapid FIFO sizing and parameter sweeps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmark Table -->
+  <section class="py-16 md:py-20 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-blue-200">Raw Data</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 dark:text-white">Complete Benchmark Results</h2>
+        <p class="text-muted dark:text-slate-400 mt-3 max-w-2xl mx-auto">
+          Full dataset from Vitis v2021.1 — cycle counts and runtime in seconds.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm">
         <table class="w-full text-sm">
-          <thead class="bg-slate-800 border-b border-slate-700">
+          <thead class="bg-gray-50 dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
             <tr>
-              <th class="px-4 py-3 text-left font-semibold text-slate-300">Benchmark</th>
-              <th class="px-4 py-3 text-center font-semibold text-slate-300">Cosim (s)</th>
-              <th class="px-4 py-3 text-center font-semibold text-slate-300">LightningSim (s)</th>
-              <th class="px-4 py-3 text-center font-semibold text-slate-300">OmniSim (s)</th>
-              <th class="px-4 py-3 text-center font-semibold text-indigo-400">LS Speedup</th>
-              <th class="px-4 py-3 text-center font-semibold text-indigo-400">OS Speedup</th>
+              <th class="px-5 py-3.5 text-left font-semibold text-default dark:text-slate-300 text-xs uppercase tracking-wider">Benchmark</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-default dark:text-slate-300 text-xs uppercase tracking-wider">Cosim (s)</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-default dark:text-slate-300 text-xs uppercase tracking-wider">LightningSim (s)</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-default dark:text-slate-300 text-xs uppercase tracking-wider">OmniSim (s)</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-primary text-xs uppercase tracking-wider">LS Speedup</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-primary text-xs uppercase tracking-wider">OS Speedup</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-800">
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">Fixed-point Square Root</td>
-              <td class="px-4 py-3 text-center text-slate-400">27.25</td>
-              <td class="px-4 py-3 text-center text-slate-400">4.97</td>
-              <td class="px-4 py-3 text-center text-slate-400">3.65</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">5.48×</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">7.47×</td>
-            </tr>
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">FIR Filter</td>
-              <td class="px-4 py-3 text-center text-slate-400">20.12</td>
-              <td class="px-4 py-3 text-center text-slate-400">2.43</td>
-              <td class="px-4 py-3 text-center text-slate-400">1.94</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">8.23×</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">10.37×</td>
-            </tr>
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">Window Convolution</td>
-              <td class="px-4 py-3 text-center text-slate-400">28.30</td>
-              <td class="px-4 py-3 text-center text-slate-400">3.69</td>
-              <td class="px-4 py-3 text-center text-slate-400">3.15</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">7.67×</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">8.98×</td>
-            </tr>
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">Floating-point Conv</td>
-              <td class="px-4 py-3 text-center text-slate-400">49.78</td>
-              <td class="px-4 py-3 text-center text-slate-400">2.42</td>
-              <td class="px-4 py-3 text-center text-slate-400">2.46</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">20.57×</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">20.24×</td>
-            </tr>
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">Unoptimized FFT</td>
-              <td class="px-4 py-3 text-center text-slate-400">153.53</td>
-              <td class="px-4 py-3 text-center text-slate-400">2.78</td>
-              <td class="px-4 py-3 text-center text-slate-400">2.91</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">55.23×</td>
-              <td class="px-4 py-3 text-center text-indigo-400 font-semibold">52.76×</td>
-            </tr>
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">FlowGNN - GIN</td>
-              <td class="px-4 py-3 text-center text-slate-400">4219.85</td>
-              <td class="px-4 py-3 text-center text-slate-400">28.90</td>
-              <td class="px-4 py-3 text-center text-slate-400">11.97</td>
-              <td class="px-4 py-3 text-center text-pink-400 font-semibold">146.02×</td>
-              <td class="px-4 py-3 text-center text-pink-400 font-semibold">352.53×</td>
-            </tr>
-            <tr class="hover:bg-slate-800 transition-colors">
-              <td class="px-4 py-3 font-medium text-white">FlowGNN - DGN</td>
-              <td class="px-4 py-3 text-center text-slate-400">996.13</td>
-              <td class="px-4 py-3 text-center text-slate-400">26.90</td>
-              <td class="px-4 py-3 text-center text-slate-400">11.71</td>
-              <td class="px-4 py-3 text-center text-pink-400 font-semibold">37.03×</td>
-              <td class="px-4 py-3 text-center text-pink-400 font-semibold">85.07×</td>
-            </tr>
+          <tbody class="divide-y divide-gray-100 dark:divide-slate-700/50 bg-white dark:bg-slate-800/50">
+            {[
+              { name: 'Fixed-point Square Root', cosim: '27.25', ls: '4.97', os: '3.65', lsX: '5.48', osX: '7.47' },
+              { name: 'FIR Filter', cosim: '20.12', ls: '2.43', os: '1.94', lsX: '8.23', osX: '10.37' },
+              { name: 'Window Convolution', cosim: '28.30', ls: '3.69', os: '3.15', lsX: '7.67', osX: '8.98' },
+              { name: 'Floating-point Conv', cosim: '49.78', ls: '2.42', os: '2.46', lsX: '20.57', osX: '20.24' },
+              { name: 'Unoptimized FFT', cosim: '153.53', ls: '2.78', os: '2.91', lsX: '55.23', osX: '52.76' },
+              { name: 'FlowGNN — GIN', cosim: '4219.85', ls: '28.90', os: '11.97', lsX: '146.02', osX: '352.53', highlight: true },
+              { name: 'FlowGNN — DGN', cosim: '996.13', ls: '26.90', os: '11.71', lsX: '37.03', osX: '85.07', highlight: true },
+            ].map((r) => (
+              <tr class="hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                <td class="px-5 py-3.5 font-medium text-default dark:text-white">{r.name}</td>
+                <td class="px-5 py-3.5 text-center text-muted dark:text-slate-400">{r.cosim}</td>
+                <td class="px-5 py-3.5 text-center text-muted dark:text-slate-400">{r.ls}</td>
+                <td class="px-5 py-3.5 text-center text-muted dark:text-slate-400">{r.os}</td>
+                <td class={`px-5 py-3.5 text-center font-semibold ${r.highlight ? 'text-pink-600 dark:text-pink-400' : 'text-primary'}`}>{r.lsX}×</td>
+                <td class={`px-5 py-3.5 text-center font-semibold ${r.highlight ? 'text-pink-600 dark:text-pink-400' : 'text-primary'}`}>{r.osX}×</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
 
-      <div class="mt-8 p-6 bg-slate-800 border border-slate-700 rounded-lg">
-        <p class="text-slate-400 text-center">
-          <span class="text-white font-semibold">30+ benchmarks</span> tested across DSP operations, loop structures, memory access patterns, and AI/ML workloads. 
-          <a href="/profiling" class="text-indigo-400 hover:text-indigo-300 font-semibold">View complete profiling data →</a>
+      <div class="mt-6 text-center">
+        <p class="text-sm text-muted dark:text-slate-400">
+          <span class="font-medium text-default dark:text-white">30+ benchmarks</span> tested across DSP operations, loop structures, memory access patterns, and AI/ML workloads.
+          <a href="/profiling" class="text-primary hover:underline font-medium ml-1">View complete profiling data &rarr;</a>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Key Insights Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-8 text-center">Key Insights</h2>
-      
-      <div class="space-y-4">
-        <div class="flex gap-4 p-6 bg-slate-800 border border-indigo-500/30 rounded-lg hover:border-indigo-500/60 transition-colors">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-indigo-500 text-white">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">99.9% Accuracy</h3>
-            <p class="text-slate-400">Timing estimates from LightningSim and OmniSim maintain 99.9% accuracy with respect to C/RTL co-simulation across all benchmarks.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-6 bg-slate-800 border border-purple-500/30 rounded-lg hover:border-purple-500/60 transition-colors">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-purple-500 text-white">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">100x+ Acceleration</h3>
-            <p class="text-slate-400">LightningSim achieves consistent speedups of 100x or greater across diverse workloads, with peak performance reaching 55x on FFT operations.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-6 bg-slate-800 border border-pink-500/30 rounded-lg hover:border-pink-500/60 transition-colors">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-pink-500 text-white">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">AI/ML Powerhouse</h3>
-            <p class="text-slate-400">Exceptional performance on complex workloads like FlowGNN models, delivering up to 352x speedup for graph neural network operations.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 p-6 bg-slate-800 border border-cyan-500/30 rounded-lg hover:border-cyan-500/60 transition-colors">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-cyan-500 text-white">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Design Space Exploration</h3>
-            <p class="text-slate-400">Combined with incremental design space exploration features, achieve up to 577x acceleration for comprehensive optimization workflows.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
+  <!-- CTA -->
   <CallToAction
-    title="Ready to Accelerate Your Design?"
-    subtitle="Transform your HLS and FPGA workflow with breakthrough simulation speed. Get started today."
+    title="Ready to Accelerate Your Workflow?"
+    subtitle="Replace hour-long co-simulations with seconds. Get started with LightningSim or OmniSim."
     actions={[
       {
         variant: 'primary',
-        target: '_blank',
-        text: 'Contact Sales',
+        text: 'Contact Us',
         href: 'mailto:hi@lightningx-da.com',
+        icon: 'tabler:arrow-right',
       },
     ]}
   />

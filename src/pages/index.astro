@@ -16,32 +16,37 @@ const metadata = {
 
   <!-- Hero Slider Section -->
   <HeroSlider
+    class="hero-slider"
     title="Faster Simulation. Scalable Optimization."
     image={{ src: '~/assets/images/featured.jpg', alt: 'Photo of FPGA development board with LightningSim UI fading in on the right' }}
     slides={[
       {
         title: 'Built on Research',
-        description: 'Tools developed by engineers and researchers from Sharc Lab at Georgia Tech. Featured in top conferences such as MICRO\'26, FCCM\'24, and FCCM\'23',
+        description: 'Tools developed by engineers and researchers from Sharc Lab at Georgia Tech. Featured in top conferences such as MICRO\'25, FCCM\'24, and FCCM\'23 (Best Paper runner-up).',
         buttonText: 'View Papers',
-        buttonHref: '#papers'
+        buttonHref: '/team#papers',
+        icon: 'tabler:school',
       },
       {
         title: 'Ultra-fast Cycle-accurate Simulation',
         description: 'LightningSim accelerates your C/RTL co-simulation by 100x with 99.9% accuracy. Don\'t waste time on slow simulations.',
         buttonText: 'Learn More',
-        buttonHref: '/performance'
+        buttonHref: '/performance',
+        icon: 'tabler:rocket',
       },
-      {
-        title: 'Scalable Optimization',
-        description: 'Reduce costs and time-to-market for chip and FPGA designs. Flexible solutions from open-source to enterprise.',
-        buttonText: 'Explore',
-        buttonHref: '#features'
-      },
+      // {
+      //   title: 'Scalable Optimization',
+      //   description: 'Reduce costs and time-to-market for chip and FPGA designs. Flexible solutions from open-source to enterprise.',
+      //   buttonText: 'Explore',
+      //   buttonHref: '#features',
+      //   icon: 'tabler:chart-arrows-vertical',
+      // },
       {
         title: 'HLS & FPGA Acceleration',
-        description: 'Advanced synthesis optimization and hardware acceleration tools for next-generation chip designs.',
+        description: 'Advanced synthesis optimization and hardware acceleration tools for next-generation chip designs. Reduce costs and time-to-market for chip and FPGA designs.',
         buttonText: 'Discover',
-        buttonHref: '#features'
+        buttonHref: '#features',
+        icon: 'tabler:cpu',
       }
     ]}
   />
@@ -82,7 +87,8 @@ const metadata = {
   <!-- Steps Section -->
   <Steps
     title="Get to Know LightningSim"
-    isDark={true}
+    isDark={false}
+    bg={`<div class="absolute inset-0 bg-gray-50 dark:bg-slate-900/50"></div>`}
     items={[
       {
         title: 'Feature 1: <span class="font-medium">Ultra-fast Cycle-accurate Simulation</span>',
@@ -109,7 +115,8 @@ const metadata = {
 
   <Steps 
   title="Deep Dive into LightningSim" 
-  isDark={true}
+  isDark={false}
+  bg={`<div class="absolute inset-0 bg-gray-50 dark:bg-slate-900/50"></div>`}
   items={[
     {
       title: `Watch our

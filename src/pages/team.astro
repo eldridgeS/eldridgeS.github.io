@@ -2,125 +2,159 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Image from '~/components/common/Image.astro';
+
+const metadata = {
+  title: 'Our Team — LightningX',
+};
 ---
 
-<Layout>
-  <Fragment slot="title">
-  Meet Our Team!<span class="text-accent dark:text-white highlight">exascale.</span>
-  </Fragment>
-  
+<Layout metadata={metadata}>
+
   <!-- Hero Section -->
   <Hero
     tagline="Our Team"
-    title="Building the Future Together"
-    subtitle="A talented team of researachers and engineers dedicated to delivering exascale solutions that push the boundaries of what's possible in EDA."
+    title=`The People Behind Lightning<svg viewBox="550 0 95 112" style="height:0.78em;display:inline-block;vertical-align:baseline;margin-bottom:-0.02em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M577 5H552L578 45L593 29.6154L577 5ZM616 65L598.647 76.7647L617 105H642L616 65Z" fill="currentColor"/><path d="M642 5L603 45L616 65L557 105H552L591 65L578 45L617 5H642Z" fill="#EAAA00"/></svg>`
+    subtitle="Researchers and engineers from Georgia Tech's Sharc Lab, building production-grade EDA tools grounded in peer-reviewed research."
   />
 
-  <!-- Team Stats -->
-  <Stats
-    title="By The Numbers"
-    subtitle="Our team's track record speaks for itself. All AI Slop."
-    stats={[
-      {
-        amount: '50+',
-        title: 'Years of Combined Experience',
-        icon: 'tabler:briefcase',
-      },
-      {
-        amount: '4',
-        title: 'Core Team Members',
-        icon: 'tabler:users',
-      },
-      {
-        amount: '100%',
-        title: 'Commitment to Excellence',
-        icon: 'tabler:star',
-      },
-      {
-        amount: '∞',
-        title: 'Innovative Solutions',
-        icon: 'tabler:bulb',
-      }
-    ]}
-  />
+  <!-- Team Members — custom card grid -->
+  <section class="-mt-8 pb-16 md:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid gap-8 sm:grid-cols-2">
 
-  <!-- Team Members -->
-  <Features
-    id="team_members"
-    title="Meet The Innovators"
-    subtitle="The brilliant minds behind exascale technology"
-    columns={2}
-    items={[
-      {
-        title: 'Dr. Callie Hao',
-        description: 'CTO | Visionary & Strategic Director',
-        image: '/images/Callie.png',
-        icon: 'tabler:crown',
-      },
-      {
-        title: 'Rishov Sarkar',
-        description: 'CEO | Core Architecture & Innovation',
-        image: '/images/Rishov.png',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Pramath Balisavira Guruprasanna',
-        description: 'Engineering Lead | Systems & Infrastructure',
-        image: '/images/Pramath.png',
-        icon: 'tabler:cpu',
-      },
-      {
-        title: 'Sudiksha Das',
-        description: 'Management Lead | Operations & Growth',
-        image: '/images/Sudiksha.png',
-        icon: 'tabler:chart-line',
-      }
-    ]}
-  />
+        <!-- Callie Hao -->
+        <div class="group flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow duration-300">
+          <div class="shrink-0 w-36 h-36 md:w-40 md:h-40 rounded-2xl overflow-hidden ring-2 ring-gray-200 dark:ring-gray-700 group-hover:ring-primary/50 transition-all duration-300">
+            <img src="/images/Callie.png" alt="Dr. Callie Hao" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-default dark:text-white">Dr. Callie Hao</h3>
+            <p class="text-sm font-medium text-primary mt-0.5">Chief Technology Officer</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-2 leading-relaxed">
+              Visionary strategist leading technical direction. Faculty at Georgia Tech, published at top-tier venues.
+            </p>
+          </div>
+        </div>
 
-  <!-- Team Culture & Vision -->
-  <Testimonials
-    title="Our Culture"
-    subtitle="What drives us every day"
-    testimonials={[
-      {
-        title: 'Innovation First',
-        testimonial: 'We believe that pushing boundaries is not optional—it\'s essential. Every decision we make prioritizes breakthrough innovation.',
-        name: 'Our Philosophy',
-        job: 'Core Value',
-        // image: 'tabler:star',
-      },
-      {
-        title: 'Collaborative Excellence',
-        testimonial: 'Our strength lies in our diversity. We bring together different perspectives to solve the world\'s toughest computational challenges.',
-        name: 'Our Team',
-        job: 'Team Dynamic',
-        // image: 'tabler:star',
-      },
-      {
-        title: 'Future-Ready',
-        testimonial: 'We\'re not just building for today. Every product, every decision is made with foresight toward the exascale future.',
-        name: 'Our Vision',
-        job: 'Long-term Goal',
-        // image: 'tabler:star',
-      }
-    ]}
-  />
+        <!-- Rishov Sarkar -->
+        <div class="group flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow duration-300">
+          <div class="shrink-0 w-36 h-36 md:w-40 md:h-40 rounded-2xl overflow-hidden ring-2 ring-gray-200 dark:ring-gray-700 group-hover:ring-primary/50 transition-all duration-300">
+            <img src="/images/Rishov.png" alt="Rishov Sarkar" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-default dark:text-white">Rishov Sarkar</h3>
+            <p class="text-sm font-medium text-primary mt-0.5">Chief Executive Officer</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-2 leading-relaxed">
+              Core architecture and product innovation. Lead author on LightningSim research at FCCM and MICRO.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pramath -->
+        <div class="group flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow duration-300">
+          <div class="shrink-0 w-36 h-36 md:w-40 md:h-40 rounded-2xl overflow-hidden ring-2 ring-gray-200 dark:ring-gray-700 group-hover:ring-primary/50 transition-all duration-300">
+            <img src="/images/Pramath.png" alt="Pramath Balisavira Guruprasanna" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-default dark:text-white">Pramath B. Guruprasanna</h3>
+            <p class="text-sm font-medium text-primary mt-0.5">Engineering Lead</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-2 leading-relaxed">
+              Systems and infrastructure engineering. Building reliable, scalable toolchains for production EDA workflows.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sudiksha -->
+        <div class="group flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow duration-300">
+          <div class="shrink-0 w-36 h-36 md:w-40 md:h-40 rounded-2xl overflow-hidden ring-2 ring-gray-200 dark:ring-gray-700 group-hover:ring-primary/50 transition-all duration-300">
+            <img src="/images/Sudiksha.png" alt="Sudiksha Das" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-default dark:text-white">Sudiksha Das</h3>
+            <p class="text-sm font-medium text-primary mt-0.5">Management Lead</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-2 leading-relaxed">
+              Operations and growth strategy. Driving partnerships, go-to-market execution, and business development.
+            </p>
+          </div>
+        </div>
+
+        <!-- Eldridge -->
+        <div class="group flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow duration-300">
+          <div class="shrink-0 w-36 h-36 md:w-40 md:h-40 rounded-2xl overflow-hidden ring-2 ring-gray-200 dark:ring-gray-700 group-hover:ring-primary/50 transition-all duration-300">
+            <img src="/images/Eldridge.jpg" alt="Eldridge Surianto" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-default dark:text-white">Eldridge Surianto</h3>
+            <p class="text-sm font-medium text-primary mt-0.5">Software</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-2 leading-relaxed">
+              Software engineering and research. Contributing to core LightningSim development and optimization.
+            </p>
+          </div>
+        </div>
+
+        <!-- Kamya -->
+        <div class="group flex items-center gap-6 p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow duration-300">
+          <div class="shrink-0 w-36 h-36 md:w-40 md:h-40 rounded-2xl overflow-hidden ring-2 ring-gray-200 dark:ring-gray-700 group-hover:ring-primary/50 transition-all duration-300">
+            <img src="/images/Kamya.jpeg" alt="Kamya Hari" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-default dark:text-white">Kamya Hari</h3>
+            <p class="text-sm font-medium text-primary mt-0.5">Software</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-2 leading-relaxed">
+              Software engineering and research. Contributing to core LightningSim development and optimization.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Credentials -->
+  <section id="papers" class="py-12 md:py-16 bg-gray-50 dark:bg-slate-900/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-blue-200">Where We Publish</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 dark:text-white">Grounded in Peer-Reviewed Research</h2>
+        <p class="text-muted dark:text-slate-400 mt-3 max-w-2xl mx-auto">
+          Our tools are backed by publications at the highest-tier computer architecture and FPGA conferences.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6 text-center">
+        <div class="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700">
+          <a href="https://arxiv.org/abs/2508.19299" target="_blank" rel="noopener noreferrer">
+            <p class="text-2xl font-bold text-primary">MICRO '25</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-1"> 58th IEEE/ACM International Symposium on Microarchitecture</p>
+          </a>
+        </div>
+        <div class="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700">
+          <a href="https://arxiv.org/abs/2404.09471" target="_blank" rel="noopener noreferrer">
+            <p class="text-2xl font-bold text-primary">FCCM '24</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-1">32nd IEEE International Symposium on Field-Programmable Custom Computing Machines</p>
+          </a>
+        </div>
+        <div class="p-6 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 relative">
+          <a href="https://arxiv.org/abs/2304.11219" target="_blank" rel="noopener noreferrer">
+            <p class="text-2xl font-bold text-primary">FCCM '23</p>
+            <p class="text-sm text-muted dark:text-slate-400 mt-1">31st IEEE International Symposium on Field-Programmable Custom Computing Machines</p>
+            <span class="inline-block mt-2 px-2.5 py-0.5 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300">🏆 Best Paper Runner-Up</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Call to Action -->
   <CallToAction
-    title="Ready to Join Our Mission?"
-    subtitle="We're always looking for talented individuals who share our passion for innovation and technical excellence."
+    title="Interested in Working With Us?"
+    subtitle="We're a small, focused team solving hard problems in EDA. If that sounds like your kind of challenge, let's talk."
     actions={[
       {
         variant: 'primary',
         text: 'Get in Touch',
         href: '/contact',
+        icon: 'tabler:arrow-right',
       }
     ]}
   />
