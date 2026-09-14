@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>High Performance Computer Architecture (ECE 4100) Projects | Eldridge Surianto</title>
+  <meta name="description" content="Projects completed for ECE 4100 High Performance Computer Architecture">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .section-wrapper {
+      max-width: 900px;
+      margin: 40px auto 20px auto;
+    }
+
+    .section-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: var(--text-color, #333);
+    }
+
+    .section-content {
+      font-size: 1em;
+      line-height: 1.8;
+      color: var(--text-color, #555);
+      margin-bottom: 20px;
+    }
+
+    .project-highlights {
+      background-color: var(--card-bg-color, #f9f9f9);
+      border-left: 4px solid #007bff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .project-highlights h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+
+    .project-highlights ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .project-highlights li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      z-index: 10;
+      position: sticky;
+      top: 0;
+      background-color: var(--navbar-bg-color, #eee);
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #footer {
+      padding: 20px;
+      text-align: center;
+      background-color: var(--footer-bg-color, #eee);
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../project.html">
+      <span class="nav-title">High Performance Computer Architecture (ECE 4100) Projects</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button">
+        <span class="button-text">🌙 / ☀️</span>
+      </button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com">
+        <span class="button-text">Contact Me</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 900px; margin: auto;">
+      A comprehensive suite of projects focused on quantitative evaluation and simulation of high-performance processor architectures. These projects, developed in C++ for ECE 4100, analyze the performance impact of architectural decisions, ranging from basic pipelining and superscalar execution to advanced multi-core cache coherence protocols.
+    </div>
+
+    <div class="section-wrapper">
+      
+      <!-- Project 3 Highlight -->
+      <div class="section-title">Directory-Based Cache Coherence Simulator</div>
+      <div class="section-content">
+        The most extensive project in the sequence involved building a cycle-accurate, trace-driven simulator to model multi-core cache coherence. The simulator accurately mimics the interactions between private L1 caches and a shared main memory directory.
+      </div>
+      <div class="project-highlights">
+        <h3>Key Features & Implementation Details</h3>
+        <ul>
+          <li><strong>Protocol Implementation:</strong> Implemented a full directory-based MESI (Modified, Exclusive, Shared, Invalid) coherence protocol.</li>
+          <li><strong>Trace-Driven Simulation:</strong> Parsed and processed real-world memory access traces (read/write operations) across multiple simulated processor cores.</li>
+          <li><strong>Interconnect Modeling:</strong> Modeled the latency and message passing between cache controllers and the central directory, accounting for invalidation traffic and write-backs.</li>
+          <li><strong>Performance Metrics:</strong> Generated detailed statistics on cache hit/miss rates, memory traffic overhead, and overall system performance scalability.</li>
+        </ul>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="section-title">Pipeline and Cache Performance Simulator</div>
+      <div class="section-content">
+        Designed a flexible simulator to evaluate the interaction between a processor pipeline and a hierarchical memory system.
+      </div>
+      <div class="project-highlights">
+        <h3>Pipelining and Memory Hierarchy</h3>
+        <ul>
+          <li><strong>Cache Configuration:</strong> Simulated configurable L1 and L2 caches (varying sizes, associativities, block sizes, and replacement policies such as LRU).</li>
+          <li><strong>Pipeline Hazards:</strong> Modeled structural and data hazards, evaluating the performance impact of stalls and bypassing.</li>
+          <li><strong>Quantitative Analysis:</strong> Extracted metrics like Average Memory Access Time (AMAT) and Instructions Per Cycle (IPC) to justify design tradeoffs.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="section-title">Instruction-Level Parallelism (ILP) and Branch Prediction</div>
+      <div class="section-content">
+        Explored advanced superscalar processor techniques to maximize instruction throughput.
+      </div>
+      <div class="project-highlights">
+        <h3>Out-of-Order Execution & Tomasulo's Algorithm</h3>
+        <ul>
+          <li><strong>Dynamic Scheduling:</strong> Implemented a simulator modeling Tomasulo's algorithm with a Reorder Buffer (ROB) to support out-of-order execution and in-order commit.</li>
+          <li><strong>Branch Prediction:</strong> Integrated dynamic branch prediction schemes (e.g., Gshare, 2-bit local predictors) and modeled the performance penalties associated with branch mispredictions and pipeline flushes.</li>
+          <li><strong>Resource Allocation:</strong> Analyzed the performance limits imposed by available hardware resources (e.g., number of reservation stations, ALUs, and execution units).</li>
+        </ul>
+      </div>
+
+      <div class="section-title">Key Learnings & Takeaways</div>
+      <div class="section-content">
+        These projects provided invaluable hands-on experience with:
+        <br><br>
+        ✓ <strong>Architectural Simulation:</strong> Building robust, trace-driven performance simulators in C++.
+        <br>
+        ✓ <strong>Quantitative Evaluation:</strong> Using empirical data to analyze and justify hardware design decisions.
+        <br>
+        ✓ <strong>Multi-Core Complexities:</strong> Understanding the subtle race conditions and state transitions inherent in cache coherence protocols.
+        <br>
+        ✓ <strong>State-of-the-Art Techniques:</strong> Gaining deep insights into the mechanisms that drive modern high-performance CPUs, from branch prediction to out-of-order execution.
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/">
+      <img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/">
+      <img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS">
+      <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/>
+    </a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com">
+      <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/>
+    </a>
+  </div>
+
+  <script defer src="../js/script.js"></script>
+</body>
+</html>

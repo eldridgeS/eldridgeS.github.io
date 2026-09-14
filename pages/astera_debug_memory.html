@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Debug Memory UVM Verification | Eldridge Surianto</title>
+  <meta name="description" content="Debug Memory UVM Verification at Astera Labs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    html, body { height: 100%; margin: 0; display: flex; flex-direction: column; }
+    #main-content { flex: 1; padding: 20px; }
+    .section-wrapper { max-width: 900px; margin: 40px auto 20px auto; }
+    .section-title { font-size: 1.8em; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: var(--text-color, #333); }
+    .section-content { font-size: 1em; line-height: 1.8; color: var(--text-color, #555); margin-bottom: 20px; }
+    .project-highlights { background-color: var(--card-bg-color, #f9f9f9); border-left: 4px solid #007bff; padding: 20px; margin: 20px 0; border-radius: 4px; }
+    .project-highlights h3 { margin-top: 0; color: #007bff; }
+    .project-highlights ul { margin: 10px 0; padding-left: 20px; }
+    .project-highlights li { margin-bottom: 10px; line-height: 1.6; }
+    .image-container { display: flex; justify-content: center; margin: 30px 0; flex-wrap: wrap; gap: 20px; }
+    .image-wrapper { flex: 1; min-width: 300px; text-align: center; }
+    .image-wrapper img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .image-caption { font-size: 0.9em; font-style: italic; color: var(--text-color, #777); margin-top: 10px; }
+    .navbar { z-index: 10; position: sticky; top: 0; background-color: var(--navbar-bg-color, #eee); padding: 10px 20px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    #footer { padding: 20px; text-align: center; background-color: var(--footer-bg-color, #eee); margin-top: auto; }
+    @media (max-width: 768px) { .image-container { flex-direction: column; } .image-wrapper { min-width: 100%; } .section-title { font-size: 1.5em; } }
+  </style>
+</head>
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../project.html">
+      <span class="nav-title">Debug Memory UVM Verification</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button"><span class="button-text">🌙 / ☀️</span></button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com"><span class="button-text">Contact Me</span></a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 900px; margin: auto;">
+      During my Summer 2026 internship at Astera Labs, I owned the end-to-end UVM verification for the Debug Memory block of the Rx DSP. This critical module captures the internal state of the DSP across 17 different signal groups, allowing post-silicon validation engineers to observe the inner workings of the chip.
+    </div>
+
+    <div class="section-wrapper">
+      
+      <div class="image-container">
+        <div class="image-wrapper">
+          <!-- TODO: Replace Image with dbgmem_viewer UI screenshot -->
+          <img src="../assets/images/code.jpeg" alt="Debug Memory Python Viewer Placeholder">
+          <div class="image-caption">The Python-based Field-Decoding Viewer parsing raw hex dumps.</div>
+        </div>
+      </div>
+
+      <div class="section-title">Comprehensive Test Suite</div>
+      <div class="section-content">
+        I developed a fully integrated ~47-item UVM test plan spanning data path integrity, field packing, timing configurations, control loops, and stress testing. This suite was seamlessly integrated into the team's existing Universal Verification Methodology (UVM) infrastructure, reusing agents and scoreboards that the team already trusted.
+      </div>
+      <div class="project-highlights">
+        <h3>Test Plan Breakdown</h3>
+        <ul>
+          <li><strong>Sanity:</strong> Force-based smoke tests, fault injection, and glitch immunity runs.</li>
+          <li><strong>Data:</strong> Sweeping across all signal groups verifying data path and bit-level field packing correctness.</li>
+          <li><strong>Timing:</strong> Verifying sample-period decimation, clock gapping, and synchronization alignment.</li>
+          <li><strong>Control & Stress:</strong> Reset stress, BIST mode switching, full config sweeps, and randomized X-leak stress testing.</li>
+          <li><strong>Integration:</strong> Wired the tests directly into the team's CI pipeline for push, nightly, and weekly regressions.</li>
+        </ul>
+      </div>
+
+      <div class="section-title">The Field-Decoding Viewer (dbgmem_viewer.py)</div>
+      <div class="section-content">
+        One of the major challenges with the debug memory was interpretability. The output is a raw stream of hex data containing heavily packed and interleaved DSP state variables. To solve this, I developed <code>dbgmem_viewer.py</code>, a 2,500+ line Python interactive dashboard.
+      </div>
+      <div class="project-highlights">
+        <h3>Viewer Features</h3>
+        <ul>
+          <li>Turns raw hex dumps into context-aware, decoded per-group fields.</li>
+          <li>Provides a visual Pass/Fail test suite matrix.</li>
+          <li>Generates a reconstructed waveform viewer and bitfield map directly from the logs.</li>
+          <li>Dramatically reduced debug time by turning opaque hexadecimal arrays into human-readable signal timelines.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/"><img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/></a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/"><img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/></a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS"><img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/></a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com"><img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/></a>
+  </div>
+</body>
+</html>

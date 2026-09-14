@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Operating Systems (CS 3210) Projects | Eldridge Surianto</title>
+  <meta name="description" content="Projects completed for CS 3210 Design of Operating Systems">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .section-wrapper {
+      max-width: 900px;
+      margin: 40px auto 20px auto;
+    }
+
+    .section-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: var(--text-color, #333);
+    }
+
+    .section-content {
+      font-size: 1em;
+      line-height: 1.8;
+      color: var(--text-color, #555);
+      margin-bottom: 20px;
+    }
+
+    .project-highlights {
+      background-color: var(--card-bg-color, #f9f9f9);
+      border-left: 4px solid #007bff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .project-highlights h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+
+    .project-highlights ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .project-highlights li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      z-index: 10;
+      position: sticky;
+      top: 0;
+      background-color: var(--navbar-bg-color, #eee);
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #footer {
+      padding: 20px;
+      text-align: center;
+      background-color: var(--footer-bg-color, #eee);
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../project.html">
+      <span class="nav-title">Operating Systems (CS 3210) Projects</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button">
+        <span class="button-text">🌙 / ☀️</span>
+      </button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com">
+        <span class="button-text">Contact Me</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 900px; margin: auto;">
+      A collection of hands-on operating system projects developed for CS 3210. These projects dive deep into kernel-level programming, focusing on concurrency, memory management, and process scheduling. The standout achievement of this series is the implementation of a Linux Completely Fair Scheduler (CFS) for the xv6 operating system, demonstrating advanced knowledge of time-slicing and process fairness.
+    </div>
+
+    <div class="section-wrapper">
+      
+      <!-- Project 4 Highlight -->
+      <div class="section-title">Linux Completely Fair Scheduler (CFS) for xv6</div>
+      <div class="section-content">
+        This capstone project involved designing and implementing a robust, fair process scheduler inspired by the Linux kernel's Completely Fair Scheduler (CFS). The scheduler was integrated into the xv6 operating system, replacing its default round-robin scheduler with a weight-based, time-slicing approach.
+      </div>
+      <div class="project-highlights">
+        <h3>Key Features & Implementation Details</h3>
+        <ul>
+          <li><strong>Proportional Share Scheduling:</strong> Processes are scheduled based on their dynamically calculated virtual runtime (vruntime), ensuring CPU time is distributed fairly according to process weights.</li>
+          <li><strong>Data Structures:</strong> Managed the run queue efficiently to keep track of process states and vruntime.</li>
+          <li><strong>Kernel-Level Modifications:</strong> Adjusted core kernel structures, context switching, and timer interrupts to support accurate time accounting.</li>
+          <li><strong>Performance Optimization:</strong> Reduced scheduling latency and improved responsiveness under heavy multiprogramming workloads.</li>
+        </ul>
+      </div>
+
+      <!-- Projects 1 & 2 -->
+      <div class="section-title">Core Operating System Fundamentals</div>
+      <div class="section-content">
+        Early projects focused on building a strong foundation in OS concepts through direct interaction with the kernel.
+      </div>
+      <div class="project-highlights">
+        <h3>System Calls and Process Management</h3>
+        <ul>
+          <li><strong>System Call Implementation:</strong> Added custom system calls to the xv6 kernel to trace process behavior and retrieve system information.</li>
+          <li><strong>Process Creation & Management:</strong> Gained deep understanding of `fork()`, `exec()`, `wait()`, and process state transitions.</li>
+          <li><strong>User-Space Utilities:</strong> Developed user-space programs that interface with the newly created system calls to demonstrate functionality and reliability.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="section-title">Memory Management and Synchronization</div>
+      <div class="section-content">
+        Explored the intricacies of modern memory architectures and concurrent programming.
+      </div>
+      <div class="project-highlights">
+        <h3>Virtual Memory and Concurrency</h3>
+        <ul>
+          <li><strong>Page Tables & Virtual Memory:</strong> Manipulated page directories and page tables to implement advanced memory management techniques such as lazy page allocation and copy-on-write (COW) fork.</li>
+          <li><strong>Synchronization Primitives:</strong> Implemented and utilized spinlocks, mutexes, and condition variables to resolve race conditions and avoid deadlocks in multi-threaded environments.</li>
+          <li><strong>Concurrency Control:</strong> Designed thread-safe data structures within the kernel to handle parallel execution across multiple CPU cores.</li>
+        </ul>
+      </div>
+
+      <div class="section-title">Key Learnings & Takeaways</div>
+      <div class="section-content">
+        These projects provided invaluable hands-on experience with:
+        <br><br>
+        ✓ <strong>Kernel Programming:</strong> Navigating and modifying a monolithic kernel architecture (xv6) in C.
+        <br>
+        ✓ <strong>Hardware-Software Interface:</strong> Understanding interrupts, traps, and context switching at the assembly level.
+        <br>
+        ✓ <strong>Advanced Scheduling Algorithms:</strong> Translating theoretical proportional-share scheduling concepts into a working implementation.
+        <br>
+        ✓ <strong>Debugging Complex Systems:</strong> Utilizing GDB to track down subtle race conditions and memory corruption issues in a concurrent kernel environment.
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/">
+      <img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/">
+      <img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/>
+    </a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS">
+      <img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/>
+    </a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com">
+      <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/>
+    </a>
+  </div>
+
+  <script defer src="../js/script.js"></script>
+</body>
+</html>

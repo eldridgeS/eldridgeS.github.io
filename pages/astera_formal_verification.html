@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Formal Verification of the Rx DSP | Eldridge Surianto</title>
+  <meta name="description" content="Formal Verification Framework for Astera Labs Rx DSP">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    html, body { height: 100%; margin: 0; display: flex; flex-direction: column; }
+    #main-content { flex: 1; padding: 20px; }
+    .section-wrapper { max-width: 900px; margin: 40px auto 20px auto; }
+    .section-title { font-size: 1.8em; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: var(--text-color, #333); }
+    .section-content { font-size: 1em; line-height: 1.8; color: var(--text-color, #555); margin-bottom: 20px; }
+    .project-highlights { background-color: var(--card-bg-color, #f9f9f9); border-left: 4px solid #007bff; padding: 20px; margin: 20px 0; border-radius: 4px; }
+    .project-highlights h3 { margin-top: 0; color: #007bff; }
+    .project-highlights ul { margin: 10px 0; padding-left: 20px; }
+    .project-highlights li { margin-bottom: 10px; line-height: 1.6; }
+    .image-container { display: flex; justify-content: center; margin: 30px 0; flex-wrap: wrap; gap: 20px; }
+    .image-wrapper { flex: 1; min-width: 300px; text-align: center; }
+    .image-wrapper img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .image-caption { font-size: 0.9em; font-style: italic; color: var(--text-color, #777); margin-top: 10px; }
+    .navbar { z-index: 10; position: sticky; top: 0; background-color: var(--navbar-bg-color, #eee); padding: 10px 20px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    #footer { padding: 20px; text-align: center; background-color: var(--footer-bg-color, #eee); margin-top: auto; }
+    @media (max-width: 768px) { .image-container { flex-direction: column; } .image-wrapper { min-width: 100%; } .section-title { font-size: 1.5em; } }
+  </style>
+</head>
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../project.html">
+      <span class="nav-title">Formal Verification of the Rx DSP</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button"><span class="button-text">🌙 / ☀️</span></button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com"><span class="button-text">Contact Me</span></a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 900px; margin: auto;">
+      During my Summer 2026 internship at Astera Labs, I architected and deployed a complete Formal Verification (VC-Formal) framework from scratch for the digital Receiver DSP (EIC). Because the DSP implements complex fixed-point algorithms (like LMS adaptation and channel impulse estimation) with deep state machines, traditional simulation could not exhaustively cover all corner cases. This framework provided the exhaustive mathematical proof needed to catch elusive bugs before silicon fabrication.
+    </div>
+
+    <div class="section-wrapper">
+      
+      <div class="image-container">
+        <div class="image-wrapper">
+          <!-- TODO: Replace Image with Formal Dashboard or Presentation Screenshot -->
+          <img src="../assets/images/desktop.jpeg" alt="VC Formal Dashboard Placeholder">
+          <div class="image-caption">Self-contained formal dashboard generated automatically by formal_report.py</div>
+        </div>
+      </div>
+
+      <div class="section-title">The Challenge & The Framework</div>
+      <div class="section-content">
+        When I joined, zero formal infrastructure existed for the Rx DSP. My goal was to build a system that was robust, modular, and easy for the team to expand. I developed over 2,000 lines of SystemVerilog Assertions (SVA) covering four critical blocks: FFE LMS, Impulse Estimator, Clock and Reset, and Core Integrator.
+      </div>
+      <div class="project-highlights">
+        <h3>Framework Architecture</h3>
+        <ul>
+          <li><strong>Built to Scale:</strong> A modular directory structure where each block is self-contained with its own SVA file, TCL script, and run scripts.</li>
+          <li><strong>Automation:</strong> Implemented <code>run_all.sh</code> for parallel regression across any block and formal app (FPV, FXP, CC, DPV, AEP).</li>
+          <li><strong>Reporting:</strong> Developed <code>formal_report.py</code>, a Python script that generates a self-contained HTML dashboard summarizing pass/fail metrics across all properties.</li>
+          <li><strong>Nightly Cron Regression:</strong> Automated the formal runs with timestamped results, surfacing regressions by morning.</li>
+        </ul>
+      </div>
+
+      <div class="section-title">Case Study: Bug #25 (FFE LMS)</div>
+      <div class="section-content">
+        Formal verification shines in finding deep corner cases. One of the most significant finds was "Bug #25" in the FFE LMS block.
+        <br><br>
+        <strong>The Symptom:</strong> An APB load to a given slice/tap wrote back the wrong value; the loaded tap did not hold what firmware wrote.
+        <br>
+        <strong>The Root Cause:</strong> The load was a read-modify-write operation. While the write destination was correctly addressed, the source it read was erroneously picked by a round-robin counter rather than the addressed slice.
+        <br>
+        <strong>The Discovery:</strong> I wrote targeted FPV assertions (fpv_bug_25) to check each slice/tap load-back independently. Formal verification returned a counterexample proving that the loaded tap took a value derived from the counter slice. I raised this to the designer, it was fixed, and re-verified clean.
+      </div>
+
+      <div class="project-highlights">
+        <h3>Impact</h3>
+        <ul>
+          <li>Caught 8 RTL and specification issues before simulations were even running.</li>
+          <li>Uncovered critical issues like signed indexing into unsigned arrays, swapped accumulation datapaths, and missing soft reset synchronizers.</li>
+          <li>Built infrastructure designed to outlive the internship, establishing a new verification standard for the team.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/"><img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/></a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/"><img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/></a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS"><img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/></a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com"><img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/></a>
+  </div>
+</body>
+</html>

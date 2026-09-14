@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>APB CDC Bridge Verification | Eldridge Surianto</title>
+  <meta name="description" content="APB CDC Bridge Verification at Astera Labs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../assets/resources/github.png" />
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    html, body { height: 100%; margin: 0; display: flex; flex-direction: column; }
+    #main-content { flex: 1; padding: 20px; }
+    .section-wrapper { max-width: 900px; margin: 40px auto 20px auto; }
+    .section-title { font-size: 1.8em; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: var(--text-color, #333); }
+    .section-content { font-size: 1em; line-height: 1.8; color: var(--text-color, #555); margin-bottom: 20px; }
+    .project-highlights { background-color: var(--card-bg-color, #f9f9f9); border-left: 4px solid #007bff; padding: 20px; margin: 20px 0; border-radius: 4px; }
+    .project-highlights h3 { margin-top: 0; color: #007bff; }
+    .project-highlights ul { margin: 10px 0; padding-left: 20px; }
+    .project-highlights li { margin-bottom: 10px; line-height: 1.6; }
+    .image-container { display: flex; justify-content: center; margin: 30px 0; flex-wrap: wrap; gap: 20px; }
+    .image-wrapper { flex: 1; min-width: 300px; text-align: center; }
+    .image-wrapper img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .image-caption { font-size: 0.9em; font-style: italic; color: var(--text-color, #777); margin-top: 10px; }
+    .navbar { z-index: 10; position: sticky; top: 0; background-color: var(--navbar-bg-color, #eee); padding: 10px 20px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    #footer { padding: 20px; text-align: center; background-color: var(--footer-bg-color, #eee); margin-top: auto; }
+    @media (max-width: 768px) { .image-container { flex-direction: column; } .image-wrapper { min-width: 100%; } .section-title { font-size: 1.5em; } }
+  </style>
+</head>
+<body>
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <a class="nav-title-link" href="../project.html">
+      <span class="nav-title">APB CDC Bridge Verification</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="dark-mode-toggle" class="button"><span class="button-text">🌙 / ☀️</span></button>
+      <a class="button" href="mailto:eldridgesurianto1@gmail.com"><span class="button-text">Contact Me</span></a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="body-text" style="max-width: 900px; margin: auto;">
+      As part of my broader contributions to the verification team at Astera Labs, I was tasked with verifying the APB Clock Domain Crossing (CDC) Bridge. This project presented a unique challenge: verifying a "moving target" where the RTL design was actively evolving while I was building the verification infrastructure.
+    </div>
+
+    <div class="section-wrapper">
+      
+      <div class="image-container">
+        <div class="image-wrapper">
+          <!-- TODO: Replace Image with APB CDC Bridge block diagram or UVM environment -->
+          <img src="../assets/images/desktop.jpeg" alt="APB CDC Bridge Block Diagram">
+          <div class="image-caption">UVM Verification Environment for the APB CDC Bridge</div>
+        </div>
+      </div>
+
+      <div class="section-title">Verifying a Moving Target (Hornet)</div>
+      <div class="section-content">
+        Clock Domain Crossing bridges are notoriously tricky due to the asynchronous nature of the interfaces. The design team was actively reworking the architecture to improve latency and robustness, which meant the verification environment had to adapt rapidly to fundamental architectural shifts.
+      </div>
+      <div class="project-highlights">
+        <h3>Verification Journey</h3>
+        <ul>
+          <li><strong>Baseline Verification:</strong> I initially verified the baseline design, bringing up 11 UVM tests and proving 22 formal assertions exhaustively. In this phase, the watchdog timer lived in the destination domain.</li>
+          <li><strong>Design Rework:</strong> Mid-project, the RTL was reworked. The watchdog was moved to the source domain, and new features like a stale-response interlock and FIFO-state timeout were introduced.</li>
+          <li><strong>Agile Adaptation:</strong> I actively iterated on the UVM environment, updating sequencers, drivers, and the central scoreboard to handle the new address/data/strobe response paths. Simultaneously, I rewrote the formal SystemVerilog Assertions (SVA) in step with each RTL change to ensure continuous proof of correctness.</li>
+        </ul>
+      </div>
+
+      <div class="section-title">Key Takeaways</div>
+      <div class="section-content">
+        This project honed my ability to work closely with RTL designers in a fast-paced environment. It demonstrated that a strong, modular UVM and Formal setup is essential not just for proving a static design, but for safely supporting rapid architectural refactoring without introducing regression bugs.
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://www.instagram.com/eldrid.ge/"><img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram"/></a>
+    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/eldridge-surianto/"><img src="../assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn"/></a>
+    <a class="icon-link" target="_blank" href="https://github.com/eldridgeS"><img src="../assets/icons/github.svg" class="footer-icon" alt="GitHub"/></a>
+    <a class="icon-link" href="mailto:eldridgesurianto1@gmail.com"><img src="../assets/icons/mail.svg" class="footer-icon" alt="Email"/></a>
+  </div>
+</body>
+</html>
